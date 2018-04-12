@@ -40,3 +40,6 @@ repo = 'deton/jasegment.vim'
 
 [[plugins]]
 repo = 'uplus/deoplete-solargraph'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
