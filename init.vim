@@ -71,6 +71,12 @@ set textwidth=0
 "<C-@>誤爆防止
 inoremap <C-@> <Esc>
 
+"<C-j>で挿入モードから抜ける
+inoremap <C-j> <Esc>
+
+"<C-j>でTerminal-Jobモードから抜ける
+tnoremap <C-j> <C-\><C-n>
+
 "タブ切り替え
 noremap <C-n> gt
 noremap <C-p> gT
@@ -86,12 +92,9 @@ nnoremap <Space><C-j> <C-w>J
 nnoremap <Space><C-k> <C-w>K
 nnoremap <Space><C-l> <C-w>L
 
+"split時の挙動設定
 set splitright
 set splitbelow
-
-"カレントディレクトリ変更
-cd $HOME
-autocmd BufRead * lcd %:h
 
 "全角記号表示のための設定
 set ambiwidth=double

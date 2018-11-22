@@ -72,6 +72,7 @@ hook_add = '''
   \ 'ruby': ['rubocop'],
   \ 'python': ['flake8'],
   \ 'javascript': ['standard'],
+  \ 'sh': ['shell'],
   \ }
 '''
 
