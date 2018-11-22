@@ -67,6 +67,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_linters = {
+  \ 'ruby': ['rubocop'],
+  \ 'python': ['flake8'],
+  \ 'javascript': ['standard'],
+  \ }
+'''
 
 [[plugins]]
 repo = 'othree/yajs.vim'
