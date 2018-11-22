@@ -24,6 +24,12 @@ repo = 'deton/jasegment.vim'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
