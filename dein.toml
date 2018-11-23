@@ -30,46 +30,71 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
 hook_add = '''
-  let g:deoplete#enable_at_startup = 1
+  let g:asyncomplete_smart_completion = 1
+  set completeopt-=preview
 
-  call deoplete#custom#option({
-  \ 'auto_complete_delay': 0,
-  \ 'smart_case': v:true,
-  \ })
-
-  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function() abort
-    return deoplete#close_popup() . "\<CR>"
-  endfunction
-
-  inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ deoplete#mappings#manual_complete()
-  function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction"}}}
-  inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  imap <c-space> <Plug>(asyncomplete_force_refresh)
 '''
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
+repo = 'prabirshrestha/asyncomplete-buffer.vim'
 hook_add = '''
-  let g:LanguageClient_serverCommands = {
-  \ 'ruby': ['solargraph', 'stdio'],
-  \ 'python': ['pyls'],
-  \ 'javascript': ['javascript-typescript-stdio'],
-  \ }
-  set completeopt-=preview
-  set completefunc=LanguageClient#complete
+  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+  \ 'name': 'buffer',
+  \ 'whitelist': ['*'],
+  \ 'completor': function('asyncomplete#sources#buffer#completor'),
+  \ }))
 '''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+hook_add = '''
+  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+  \ 'name': 'file',
+  \ 'whitelist': ['*'],
+  \ 'priority': 10,
+  \ 'completor': function('asyncomplete#sources#file#completor')
+  \ }))
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  if executable('solargraph')
+    au User lsp_setup call lsp#register_server({
+    \ 'name': 'solargraph',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+    \ 'initialization_options': {"diagnostics": "true"},
+    \ 'whitelist': ['ruby'],
+    \ })
+  endif
+
+  if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+  endif
+
+  if executable('javascript-typescript-stdio')
+    au User lsp_setup call lsp#register_server({
+    \ 'name': 'javascript-typescript-langserver',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
+    \ 'whitelist': ['javascript', 'typescript', 'javascript.jsx'],
+    \ })
+  endif
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'w0rp/ale'
