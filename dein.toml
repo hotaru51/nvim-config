@@ -46,7 +46,7 @@ hook_add = '''
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-buffer.vim'
 hook_add = '''
-  call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
   \ 'name': 'buffer',
   \ 'whitelist': ['*'],
   \ 'completor': function('asyncomplete#sources#buffer#completor'),
@@ -95,6 +95,27 @@ hook_add = '''
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+hook_add = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+hook_add = '''
+  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+  \ 'name': 'neosnippet',
+  \ 'whitelist': ['*'],
+  \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+  \ }))
+'''
 
 [[plugins]]
 repo = 'w0rp/ale'
