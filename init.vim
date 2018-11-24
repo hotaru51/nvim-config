@@ -65,12 +65,17 @@ set fileformat=unix
 set noundofile
 set nobackup
 
-" 自動折り返し無効化
+"自動折り返し無効化
 set textwidth=0
-autocmd FileType text setlocal textwidth=0
 
 "<C-@>誤爆防止
 inoremap <C-@> <Esc>
+
+"<C-j>で挿入モードから抜ける
+inoremap <C-j> <Esc>
+
+"<C-j>でTerminal-Jobモードから抜ける
+tnoremap <C-j> <C-\><C-n>
 
 "タブ切り替え
 noremap <C-n> gt
@@ -87,17 +92,16 @@ nnoremap <Space><C-j> <C-w>J
 nnoremap <Space><C-k> <C-w>K
 nnoremap <Space><C-l> <C-w>L
 
-"カレントディレクトリ変更
-cd $HOME
-autocmd BufRead * lcd %:h
+"split時の挙動設定
+set splitright
+set splitbelow
 
-" 全角記号表示のための設定
+"全角記号表示のための設定
 set ambiwidth=double
 
-" クリップボード操作
+"クリップボード操作
 vnoremap <Space>y "*y
 nnoremap <Space>y "*y
-
 vnoremap <Space>p "*p
 nnoremap <Space>p "*p
 nnoremap <Space>P "*P
