@@ -28,8 +28,11 @@ hook_add = '''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
 hook_add = '''
-  nnoremap <C-e> :NERDTreeToggle<CR>
+  nmap <C-e> <Plug>NERDTreeTabsToggle<CR>
 '''
 
 [[plugins]]
