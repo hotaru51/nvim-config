@@ -147,6 +147,7 @@ hook_add = '''
   nmap * <Plug>(anzu-star-with-echo)
   nmap # <Plug>(anzu-sharp-with-echo)
   nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+'''
 hook_source = '''
   set statusline=%{anzu#search_status()}
 '''
