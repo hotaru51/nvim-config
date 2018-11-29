@@ -151,3 +151,9 @@ hook_add = '''
 hook_source = '''
   set statusline=%{anzu#search_status()}
 '''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'cohama/agit.vim'
