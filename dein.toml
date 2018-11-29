@@ -36,6 +36,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
