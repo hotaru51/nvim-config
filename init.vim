@@ -52,10 +52,7 @@ set cursorline
 set laststatus=2
 
 "タブ設定
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
+set ts=2 sts=2 sw=2 et
 
 "改行コード、文字コード設定
 set encoding=utf-8
@@ -67,6 +64,9 @@ set nobackup
 
 "自動折り返し無効化
 set textwidth=0
+
+"leaderキー設定
+let mapleader=","
 
 "<C-@>誤爆防止
 inoremap <C-@> <Esc>
