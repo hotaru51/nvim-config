@@ -13,6 +13,7 @@
   - neovim
   - javascript-typescript-langserver
   - standard
+  - jsonlint
 
 ## Usage
 ```sh

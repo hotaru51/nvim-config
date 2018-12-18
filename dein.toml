@@ -133,6 +133,7 @@ hook_add = '''
   \ 'ruby': ['rubocop'],
   \ 'python': ['flake8'],
   \ 'javascript': ['standard'],
+  \ 'json': ['jsonlint'],
   \ 'sh': ['shell'],
   \ }
   let g:ale_open_list = 1
