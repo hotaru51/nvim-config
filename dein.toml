@@ -133,6 +133,7 @@ hook_add = '''
   \ 'ruby': ['rubocop'],
   \ 'python': ['flake8'],
   \ 'javascript': ['standard'],
+  \ 'json': ['jsonlint'],
   \ 'sh': ['shell'],
   \ }
   let g:ale_open_list = 1
@@ -184,4 +185,15 @@ hook_add = '''
   \            [ 'percent' ],
   \            [ 'fileformat', 'fileencoding', 'filetype' ],
   \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ] }
+'''
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_auto_colors = 0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=238
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 '''
