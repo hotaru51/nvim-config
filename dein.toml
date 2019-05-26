@@ -76,6 +76,7 @@ hook_add = '''
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+  let g:lsp_diagonistics_enabled = 0
   if executable('solargraph')
     au User lsp_setup call lsp#register_server({
     \ 'name': 'solargraph',
@@ -136,6 +137,11 @@ hook_add = '''
   \ 'json': ['jsonlint'],
   \ 'sh': ['shell'],
   \ }
+
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_insert_leave = 1
+  let g:ale_sign_column_always = 1
+  let g:ale_keep_list_window_open = 1
   let g:ale_open_list = 1
   let g:ale_list_window_size = 5
 '''
