@@ -52,7 +52,7 @@ set cursorline
 set laststatus=2
 
 "タブ設定
-set ts=2 sts=2 sw=2 et
+set ts=4 sts=4 sw=4 et
 
 "改行コード、文字コード設定
 set encoding=utf-8
