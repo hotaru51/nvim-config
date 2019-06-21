@@ -100,8 +100,13 @@ set splitbelow
 set ambiwidth=double
 
 "クリップボード操作
-vnoremap <Space>y "*y
-nnoremap <Space>y "*y
+if has('unix')
+  vnoremap <Space>y "+y
+  nnoremap <Space>y "+y
+else
+  vnoremap <Space>y "*y
+  nnoremap <Space>y "*y
+endif
 vnoremap <Space>p "*p
 nnoremap <Space>p "*p
 nnoremap <Space>P "*P
