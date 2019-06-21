@@ -52,7 +52,7 @@ set cursorline
 set laststatus=2
 
 "タブ設定
-set ts=2 sts=2 sw=2 et
+set ts=4 sts=4 sw=4 et
 
 "改行コード、文字コード設定
 set encoding=utf-8
@@ -100,8 +100,13 @@ set splitbelow
 set ambiwidth=double
 
 "クリップボード操作
-vnoremap <Space>y "*y
-nnoremap <Space>y "*y
+if has('unix')
+  vnoremap <Space>y "+y
+  nnoremap <Space>y "+y
+else
+  vnoremap <Space>y "*y
+  nnoremap <Space>y "*y
+endif
 vnoremap <Space>p "*p
 nnoremap <Space>p "*p
 nnoremap <Space>P "*P
