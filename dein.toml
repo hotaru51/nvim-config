@@ -39,6 +39,11 @@ hook_add = '''
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_linters = {
