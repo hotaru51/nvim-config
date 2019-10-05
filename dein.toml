@@ -39,92 +39,21 @@ hook_add = '''
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = 'yarn install --frozen-lockfile'
 hook_add = '''
-  let g:asyncomplete_smart_completion = 1
-  set completeopt-=preview
+  inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  imap <c-space> <Plug>(asyncomplete_force_refresh)
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-buffer.vim'
-hook_add = '''
-  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-  \ 'name': 'buffer',
-  \ 'whitelist': ['*'],
-  \ 'completor': function('asyncomplete#sources#buffer#completor'),
-  \ }))
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-file.vim'
-hook_add = '''
-  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-  \ 'name': 'file',
-  \ 'whitelist': ['*'],
-  \ 'priority': 10,
-  \ 'completor': function('asyncomplete#sources#file#completor')
-  \ }))
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = '''
-  let g:lsp_diagonistics_enabled = 0
-  if executable('solargraph')
-    au User lsp_setup call lsp#register_server({
-    \ 'name': 'solargraph',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-    \ 'initialization_options': {"diagnostics": "true"},
-    \ 'whitelist': ['ruby'],
-    \ })
-  endif
-
-  if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ })
-  endif
-
-  if executable('javascript-typescript-stdio')
-    au User lsp_setup call lsp#register_server({
-    \ 'name': 'javascript-typescript-langserver',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
-    \ 'whitelist': ['javascript', 'typescript', 'javascript.jsx'],
-    \ })
-  endif
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-hook_add = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-'''
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
-hook_add = '''
-  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-  \ 'name': 'neosnippet',
-  \ 'whitelist': ['*'],
-  \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-  \ }))
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+  inoremap <silent><expr> <c-space> coc#refresh()
 '''
 
 [[plugins]]
