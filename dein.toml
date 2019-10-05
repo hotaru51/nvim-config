@@ -133,3 +133,8 @@ hook_add = '''
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=238
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 '''
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'cd app & yarn install'
