@@ -47,6 +47,7 @@ set autoindent
 
 "表示設定
 syntax on
+set list
 set number
 set cursorline
 set laststatus=2
