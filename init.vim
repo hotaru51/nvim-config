@@ -75,6 +75,9 @@ inoremap <C-@> <Esc>
 "<C-j>で挿入モードから抜ける
 inoremap <C-j> <Esc>
 
+"<C-j>でビジュアルモードから抜ける
+vnoremap <C-j> <Esc>
+
 "<C-j>でTerminal-Jobモードから抜ける
 tnoremap <C-j> <C-\><C-n>
 
