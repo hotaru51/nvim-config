@@ -43,6 +43,15 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
 hook_add = '''
+  let g:coc_global_extensions = [
+  \ 'coc-solargraph',
+  \ 'coc-pyls',
+  \ 'coc-tsserver',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-yaml'
+  \ ]
   inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
