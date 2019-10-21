@@ -126,7 +126,7 @@ nnoremap <leader>P "*P
 
 " カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
 command! Sterminal call SplitTerminal()
-nnoremap <leader>tt :Sterminal<CR>
+nnoremap <leader>tt :Sterminal<CR>i
 function! SplitTerminal()
     let l:win_height = winheight('%') / 4
     execute 'botright '.l:win_height.'split'
@@ -136,7 +136,7 @@ endfunction
 
 " vsplitしてターミナル表示
 command! Vterminal call VerticalSplitTerminal()
-nnoremap <leader>tv :Vterminal<CR>
+nnoremap <leader>tv :Vterminal<CR>i
 function! VerticalSplitTerminal()
     execute 'rightbelow vertical split'
     execute 'terminal'
