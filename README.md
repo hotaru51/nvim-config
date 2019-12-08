@@ -31,5 +31,4 @@ nvim
 
 ```
 :UpdateRemotePlugins
-:CocInstall coc-solargraph coc-pyls coc-tsserver coc-html coc-css coc-json coc-yaml
 ```

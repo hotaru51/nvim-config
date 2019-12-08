@@ -67,7 +67,7 @@ set nobackup
 set textwidth=0
 
 "leaderキー設定
-let mapleader=","
+let mapleader="\<Space>"
 
 "<C-@>誤爆防止
 inoremap <C-@> <Esc>
@@ -91,10 +91,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <Space><C-h> <C-w>H
-nnoremap <Space><C-j> <C-w>J
-nnoremap <Space><C-k> <C-w>K
-nnoremap <Space><C-l> <C-w>L
+nnoremap <leader><C-h> <C-w>H
+nnoremap <leader><C-j> <C-w>J
+nnoremap <leader><C-k> <C-w>K
+nnoremap <leader><C-l> <C-w>L
 
 "split時の挙動設定
 set splitright
@@ -105,12 +105,40 @@ set ambiwidth=double
 
 "クリップボード操作
 if has('unix')
-  vnoremap <Space>y "+y
-  nnoremap <Space>y "+y
+  vnoremap <leader>y "+y
+  vnoremap <leader>d "+d
+  vnoremap <leader>D "+D
+  nnoremap <leader>y "+y
+  nnoremap <leader>d "+d
+  nnoremap <leader>D "+D
 else
-  vnoremap <Space>y "*y
-  nnoremap <Space>y "*y
+  vnoremap <leader>y "*y
+  vnoremap <leader>d "*d
+  vnoremap <leader>D "*D
+  nnoremap <leader>y "*y
+  nnoremap <leader>d "*d
+  nnoremap <leader>D "*D
 endif
-vnoremap <Space>p "*p
-nnoremap <Space>p "*p
-nnoremap <Space>P "*P
+vnoremap <leader>p "*p
+vnoremap <leader>P "*P
+nnoremap <leader>p "*p
+nnoremap <leader>P "*P
+
+" カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
+command! Sterminal call SplitTerminal()
+nnoremap <leader>tt :Sterminal<CR>i
+function! SplitTerminal()
+    let l:win_height = winheight('%') / 4
+    execute 'botright '.l:win_height.'split'
+    execute 'terminal'
+    execute 'set nonumber'
+endfunction
+
+" vsplitしてターミナル表示
+command! Vterminal call VerticalSplitTerminal()
+nnoremap <leader>tv :Vterminal<CR>i
+function! VerticalSplitTerminal()
+    execute 'rightbelow vertical split'
+    execute 'terminal'
+    execute 'set nonumber'
+endfunction
