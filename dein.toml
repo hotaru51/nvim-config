@@ -32,7 +32,7 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
 hook_add = '''
-  nmap <C-e> <Plug>NERDTreeTabsToggle<CR>
+  nmap <leader>e <Plug>NERDTreeTabsToggle<CR>
 '''
 
 [[plugins]]
@@ -153,3 +153,12 @@ repo = 'tpope/vim-endwise'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+hook_add = '''
+  let g:vista_icon_indent = ["▸ ", ""]
+  let g:vista_default_executive = 'coc'
+  let g:vista#renderer#enable_icon = 0
+  nnoremap <leader>o :Vista!!<CR>
+'''

@@ -1,3 +1,6 @@
+"leaderキー設定
+let mapleader="\<Space>"
+
 "##################################################
 "#
 "# dein
@@ -65,9 +68,6 @@ set nobackup
 
 "自動折り返し無効化
 set textwidth=0
-
-"leaderキー設定
-let mapleader="\<Space>"
 
 "<C-@>誤爆防止
 inoremap <C-@> <Esc>
