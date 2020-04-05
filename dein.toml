@@ -162,3 +162,6 @@ hook_add = '''
   let g:vista#renderer#enable_icon = 0
   nnoremap <leader>o :Vista!!<CR>
 '''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
