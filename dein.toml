@@ -89,6 +89,9 @@ hook_add = '''
 repo = 'othree/yajs.vim'
 
 [[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   nmap n <Plug>(anzu-n-with-echo)
