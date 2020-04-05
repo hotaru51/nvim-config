@@ -165,3 +165,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+ [[plugins]]
+ repo = 'simeji/winresizer'
+ hook_add = '''
+   let g:winresizer_start_key = '<leader>w'
+   let g:winresizer_gui_start_key = '<leader>W'
+ '''
