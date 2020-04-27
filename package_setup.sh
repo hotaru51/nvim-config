@@ -27,7 +27,7 @@ function python_setup() {
     echo '=== pip3 install'
     pip3 install \
         neovim \
-        python-language-server \
+        python-language-server[all] \
         flake8
 }
 
