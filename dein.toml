@@ -65,6 +65,13 @@ hook_add = '''
   inoremap <silent><expr> <c-space> coc#refresh()
 
   nnoremap <silent> <leader>h :call CocAction('doHover')<cr>
+
+  autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=Red cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=Red
+  autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=Brown cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocWarningSign ctermfg=Brown
+  autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline
 '''
 
 [[plugins]]
