@@ -45,7 +45,7 @@ build = 'yarn install --frozen-lockfile'
 hook_add = '''
   let g:coc_global_extensions = [
   \ 'coc-solargraph',
-  \ 'coc-pyls',
+  \ 'coc-python',
   \ 'coc-tsserver',
   \ 'coc-html',
   \ 'coc-css',

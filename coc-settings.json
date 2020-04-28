@@ -10,5 +10,11 @@
   "solargraph.rename": true,
   "solargraph.references": true,
   "solargraph.folding": true,
-  "solargraph.logLevel": "warn"
+  "solargraph.logLevel": "warn",
+  "python.jediEnabled": false,
+  "python.analysis.diagnosticPublishDelay": 500,
+  "python.linting.flake8CategorySeverity.E": "Warning",
+  "python.linting.flake8CategorySeverity.F": "Warning",
+  "python.linting.flake8CategorySeverity.W": "Warning",
+  "python.linting.flake8Enabled": true
 }
