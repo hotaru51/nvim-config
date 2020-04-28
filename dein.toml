@@ -52,6 +52,7 @@ hook_add = '''
   \ 'coc-json',
   \ 'coc-yaml'
   \ ]
+
   inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
@@ -63,6 +64,36 @@ hook_add = '''
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
   inoremap <silent><expr> <c-space> coc#refresh()
+
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  set updatetime=500
+  nmap <leader>rn <Plug>(coc-rename)
+  nnoremap <silent> <leader>h :call CocAction('doHover')<cr>
+  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+
+  autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=Red cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=Red
+  autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=Brown cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocWarningSign ctermfg=Brown
+  autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=blue
 '''
 
 [[plugins]]
@@ -87,6 +118,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
@@ -162,3 +196,13 @@ hook_add = '''
   let g:vista#renderer#enable_icon = 0
   nnoremap <leader>o :Vista!!<CR>
 '''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+ [[plugins]]
+ repo = 'simeji/winresizer'
+ hook_add = '''
+   let g:winresizer_start_key = '<leader>w'
+   let g:winresizer_gui_start_key = '<leader>W'
+ '''
