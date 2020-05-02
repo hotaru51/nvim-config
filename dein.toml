@@ -51,7 +51,8 @@ hook_add = '''
   \ 'coc-css',
   \ 'coc-json',
   \ 'coc-yaml',
-  \ 'coc-docker'
+  \ 'coc-docker',
+  \ 'coc-sh'
   \ ]
 
   inoremap <silent><expr> <TAB>
