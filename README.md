@@ -3,17 +3,19 @@
 ## Requirement
 
 - Ruby
-  - neovim
-  - solargraph
-  - rubocop
+    - neovim
+    - solargraph
+    - rubocop
 - Python
-  - neovim
-  - python-language-server
-  - flake8
+    - neovim
+    - pylint
+    - flake8
 - node.js
-  - neovim
-  - standard
-  - jsonlint
+    - neovim
+    - standard
+    - jsonlint
+    - dockerfile-language-server-nodejs
+    - bash-language-server
 - yarn
 
 ## Usage
@@ -25,6 +27,7 @@ echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
 source ~/.bashrc
 mkdir ~/.config
 git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
+./package_setup.sh ruby python node
 ```
 
 nvim
