@@ -27,7 +27,7 @@ function python_setup() {
     echo '=== pip3 install'
     pip3 install \
         neovim \
-        python-language-server[all] \
+        pylint \
         flake8
 }
 
@@ -37,7 +37,9 @@ function node_setup() {
     npm install -g \
         neovim \
         standard \
-        jsonlint
+        jsonlint \
+        dockerfile-language-server-nodejs \
+        bash-language-server
 }
 
 # main
