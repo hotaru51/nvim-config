@@ -32,6 +32,7 @@ git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
 
 nvim
 
-```
+```sh
 :UpdateRemotePlugins
+:CocCommand python.setInterpreter
 ```
