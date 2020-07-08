@@ -214,3 +214,9 @@ repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'weilbith/nerdtree_choosewin-plugin'
+
+[[plugins]]
+repo = 't9md/vim-choosewin'
