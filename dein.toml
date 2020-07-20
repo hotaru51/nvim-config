@@ -183,6 +183,9 @@ hook_add = '''
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app & yarn install'
+hook_add = '''
+let g:mkdp_auto_close = 0
+'''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
