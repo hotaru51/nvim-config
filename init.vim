@@ -26,7 +26,6 @@ if dein#load_state(s:dein_dir)
   if filereadable(s:toml_file)
     call dein#load_toml(s:toml_file)
   endif
-  call dein#load_toml(s:toml_file)
   call dein#end()
   call dein#save_state()
 endif
