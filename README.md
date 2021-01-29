@@ -27,7 +27,7 @@ echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
 source ~/.bashrc
 mkdir ~/.config
 git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
-./package_setup.sh ruby python node
+./package_setup.sh ruby python2 python3 node
 ```
 
 nvim
