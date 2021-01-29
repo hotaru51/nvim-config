@@ -20,10 +20,14 @@ function ruby_setup() {
     yard config --gem-install-yri
 }
 
-# python
-function python_setup() {
+# python2
+function python2_setup() {
     echo '=== pip2 install'
     pip2 install neovim
+}
+
+# python3
+function python3_setup() {
     echo '=== pip3 install'
     pip3 install \
         neovim \
@@ -49,8 +53,11 @@ do
         'ruby' )
             ruby_setup
             ;;
-        'python' )
-            python_setup
+        'python2' )
+            python2_setup
+            ;;
+        'python3' )
+            python3_setup
             ;;
         'node' )
             node_setup
