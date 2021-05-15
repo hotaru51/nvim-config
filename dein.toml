@@ -39,6 +39,12 @@ hook_add = '''
 repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+  let g:webdevicons_enable_nerdtree = 1
+'''
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
@@ -207,7 +213,6 @@ repo = 'liuchengxu/vista.vim'
 hook_add = '''
   let g:vista_icon_indent = ["▸ ", ""]
   let g:vista_default_executive = 'coc'
-  let g:vista#renderer#enable_icon = 0
   nnoremap <leader>o :Vista!!<CR>
 '''
 
