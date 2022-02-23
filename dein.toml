@@ -203,6 +203,15 @@ let g:mkdp_auto_close = 0
 '''
 
 [[plugins]]
+repo = 'mattn/vim-maketable'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+hook_add = '''
+let g:table_mode_map_prefix = 'm'
+'''
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
