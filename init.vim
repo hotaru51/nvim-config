@@ -123,11 +123,14 @@ vnoremap <leader>P "*P
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
+" :terminal実行時に.bash_profileの読み込みを強制
+set shell=/bin/bash\ -l
+
 " カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
 command! Sterminal call SplitTerminal()
 nnoremap <leader>tt :Sterminal<CR>i
 function! SplitTerminal()
-    let l:win_height = winheight('%') / 4
+    let l:win_height = &lines / 4
     execute 'botright '.l:win_height.'split'
     execute 'terminal'
     execute 'set nonumber'
