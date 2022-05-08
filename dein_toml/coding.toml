@@ -1,0 +1,61 @@
+# インデントガイドを表示
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_auto_colors = 0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=238
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+'''
+
+# Rubyのend等を補完
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+# 括弧の補完
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+# JavaScriptのsyntax highlight
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+# TypeScriptのsyntax highlight
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+# Markdownプレビュー
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'cd app & yarn install'
+hook_add = '''
+let g:mkdp_auto_close = 0
+'''
+
+# 選択範囲内のMarkdownのテーブルを整形
+[[plugins]]
+repo = 'mattn/vim-maketable'
+
+# Markdownのテーブル入力支援
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+hook_add = '''
+let g:table_mode_map_prefix = 'm'
+'''
+
+# LSPを利用してシンボル等をサイドバーで表示
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = 'coc.nvim'
+hook_add = '''
+  let g:vista_icon_indent = ["▸ ", ""]
+  let g:vista_default_executive = 'coc'
+  nnoremap <leader>o :Vista!!<CR>
+'''
