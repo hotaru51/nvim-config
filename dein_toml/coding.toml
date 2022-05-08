@@ -59,3 +59,19 @@ hook_add = '''
   let g:vista_default_executive = 'coc'
   nnoremap <leader>o :Vista!!<CR>
 '''
+
+# Vim上からバッファ内のソースコード実行
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+  nnoremap Q :QuickRun<CR>
+'''
+
+# コードブロック内の言語に応じてfiletypeを変更する
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+# vim-precious依存プラグイン
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
