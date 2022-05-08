@@ -58,7 +58,8 @@ hook_add = '''
   \ 'coc-json',
   \ 'coc-yaml',
   \ 'coc-docker',
-  \ 'coc-sh'
+  \ 'coc-sh',
+  \ 'coc-go'
   \ ]
 
   inoremap <silent><expr> <TAB>
@@ -174,9 +175,12 @@ hook_add = '''
   \ 'linter_errors': 'error',
   \ 'linter_ok': 'left',
   \ }
+  let g:lightline.component_function = {
+  \ 'gitbranch': 'FugitiveHead'
+  \ }
   let g:lightline.active = {
   \ 'left': [ [ 'mode', 'paste' ],
-  \           [ 'readonly', 'filename', 'modified' ] ],
+  \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \ 'right': [ [ 'lineinfo' ],
   \            [ 'percent' ],
   \            [ 'fileformat', 'fileencoding', 'filetype' ],

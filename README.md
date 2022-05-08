@@ -35,4 +35,5 @@ nvim
 ```sh
 :UpdateRemotePlugins
 :CocCommand python.setInterpreter
+:CocCommand go.install.gopls
 ```
