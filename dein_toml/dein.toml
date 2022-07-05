@@ -1,0 +1,83 @@
+# プラグインマネージャ本体
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# プロセス非同期実行用プラグイン
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# カラースキーム
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  autocmd VimEnter * nested colorscheme molokai
+'''
+
+# 検索位置(検索ヒット数)を表示
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+  nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+'''
+hook_source = '''
+  set statusline=%{anzu#search_status()}
+'''
+
+# ウィンドウサイズ変更支援
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+   let g:winresizer_start_key = '<leader>w'
+   let g:winresizer_gui_start_key = '<leader>W'
+'''
+
+# 日本語の文節単位で移動できるようにする
+[[plugins]]
+repo = 'deton/jasegment.vim'
+
+# Vim上からGit操作
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# Git logビューワ
+[[plugins]]
+repo = 'cohama/agit.vim'
+
+# ステータスラインカスタマイズ
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = ['vim-fugitive']
+hook_add = '''
+  let g:lightline = {}
+  let g:lightline.component_type = {
+  \ 'linter_checking': 'left',
+  \ 'linter_warnings': 'warning',
+  \ 'linter_errors': 'error',
+  \ 'linter_ok': 'left',
+  \ }
+  let g:lightline.component_function = {
+  \ 'gitbranch': 'LightlineFugitive'
+  \ }
+  let g:lightline.active = {
+  \ 'left': [ [ 'mode', 'paste' ],
+  \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'percent' ],
+  \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+
+function! LightlineFugitive()
+    let l:res = ''
+
+    let l:b = FugitiveHead()
+    if strlen(b) > 0
+        let res = ' '.l:b
+    endif
+
+    return res
+endfunction
+'''

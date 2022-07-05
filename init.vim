@@ -13,7 +13,7 @@ endif
 
 let s:dein_dir='~/.cache/dein'
 let s:dein_dir_repo_dir=expand(s:dein_dir).'/repos/github.com/Shougo/dein.vim'
-let s:toml_file=$XDG_CONFIG_HOME.'/nvim/dein.toml'
+let s:toml_dir=$XDG_CONFIG_HOME.'/nvim/dein_toml'
 
 if !isdirectory(s:dein_dir_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim.git '.shellescape(s:dein_dir_repo_dir))
@@ -23,9 +23,13 @@ execute 'set runtimepath+='.s:dein_dir_repo_dir
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  if filereadable(s:toml_file)
-    call dein#load_toml(s:toml_file)
-  endif
+
+  " toml読み込み
+  call dein#load_toml(s:toml_dir.'/dein.toml')
+  call dein#load_toml(s:toml_dir.'/filer.toml')
+  call dein#load_toml(s:toml_dir.'/coc.toml')
+  call dein#load_toml(s:toml_dir.'/coding.toml')
+
   call dein#end()
   call dein#save_state()
 endif

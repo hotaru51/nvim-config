@@ -1,0 +1,70 @@
+# LSPでの入力補完等
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+hook_add = '''
+  let g:coc_global_extensions = [
+  \ 'coc-solargraph',
+  \ 'coc-pyright',
+  \ 'coc-tsserver',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-docker',
+  \ 'coc-sh',
+  \ 'coc-go'
+  \ ]
+
+  inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  set updatetime=500
+  nmap <leader>rn <Plug>(coc-rename)
+  nnoremap <silent> <leader>h :call CocAction('doHover')<cr>
+  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+
+  if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  endif
+
+  autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=Red cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=Red
+  autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=Brown cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocWarningSign ctermfg=Brown
+  autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline
+  autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=blue
+'''

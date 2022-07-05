@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+hook_add = '''
+  nmap <leader>e <Plug>NERDTreeTabsToggle<CR>
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+  let g:webdevicons_enable_nerdtree = 1
+'''
+
+[[plugins]]
+repo = 'weilbith/nerdtree_choosewin-plugin'
+
+[[plugins]]
+repo = 't9md/vim-choosewin'
