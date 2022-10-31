@@ -75,3 +75,7 @@ depends = ['context_filetype.vim']
 # vim-precious依存プラグイン
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+
+# Terraformのsyntax highlightなど
+[[plugins]]
+repo = 'hashivim/vim-terraform'
