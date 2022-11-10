@@ -2,21 +2,22 @@
 
 ## Requirement
 
-- Ruby
-    - neovim
-    - solargraph
-    - rubocop
-- Python
-    - neovim
-    - pylint
-    - flake8
-- node.js
-    - neovim
-    - standard
-    - jsonlint
-    - dockerfile-language-server-nodejs
-    - bash-language-server
-- yarn
+* Ruby
+    * neovim
+    * solargraph
+    * rubocop
+* Python
+    * neovim
+    * pylint
+    * flake8
+* node.js
+    * neovim
+    * standard
+    * jsonlint
+    * dockerfile-language-server-nodejs
+    * bash-language-server
+* yarn
+* [terraform-ls](https://github.com/hashicorp/terraform-ls)
 
 ## Usage
 
