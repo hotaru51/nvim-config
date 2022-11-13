@@ -127,9 +127,6 @@ vnoremap <leader>P "*P
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
-" :terminal実行時に.bash_profileの読み込みを強制
-set shell=/bin/bash\ -l
-
 " カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
 command! Sterminal call SplitTerminal()
 nnoremap <leader>tt :Sterminal<CR>i
