@@ -127,6 +127,9 @@ vnoremap <leader>P "*P
 nnoremap <leader>p "*p
 nnoremap <leader>P "*P
 
+" Perl providerを使用しないので無効化
+let g:loaded_perl_provider = 0
+
 " カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
 command! Sterminal call SplitTerminal()
 nnoremap <leader>tt :Sterminal<CR>i
