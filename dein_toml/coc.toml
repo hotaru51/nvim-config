@@ -97,5 +97,5 @@ hook_add = '''
   autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=blue
 
   " 補完のpopupの選択中のハイライト
-  autocmd VimEnter,Colorscheme * :hi CocMenuSel ctermbg=242 guibg=#808080
+  autocmd VimEnter,Colorscheme * :hi CocMenuSel ctermfg=255 ctermbg=242 guibg=#808080
 '''
