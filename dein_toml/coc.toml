@@ -4,6 +4,7 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
 hook_add = '''
+  " インストールするプラグイン
   let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-pyright',
@@ -17,40 +18,60 @@ hook_add = '''
   \ 'coc-go'
   \ ]
 
-  inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  " シンボルハイライト等の表示更新の遅延
+  set updatetime=300
 
-  function! s:check_back_space() abort
+  " 補完のTABキーの動作
+  inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ CheckBackspace() ? "\<Tab>" :
+  \ coc#refresh()
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+  " 補完候補の確定
+  inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+  function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
-  inoremap <silent><expr> <c-space> coc#refresh()
 
+  " <C-space>での補完実行
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
+
+  " diagnosticsの候補移動
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  " 定義元参照等の移動
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
+  " ドキュメントの表示
+  nnoremap <silent> K :call ShowDocumentation()<CR>
+  nnoremap <silent> <leader>h :call ShowDocumentation()<cr>
+
+  function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+      call CocActionAsync('doHover')
     else
-      call CocAction('doHover')
+      call feedkeys('K', 'in')
     endif
   endfunction
 
+  " カーソル下シンボルのハイライト
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  set updatetime=500
-  nmap <leader>rn <Plug>(coc-rename)
-  nnoremap <silent> <leader>h :call CocAction('doHover')<cr>
-  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
+  " シンボルのリネーム
+  nmap <leader>rn <Plug>(coc-rename)
+
+  " ドキュメントのpopup内のスクロール
   if has('nvim-0.4.0') || has('patch-8.2.0750')
     nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -60,6 +81,13 @@ hook_add = '''
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   endif
 
+  " :Foldでcocによる折りたたみ
+  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+  " diagnosticsの一覧表示
+  nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+
+  " エラーや警告等のハイライト
   autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=Red cterm=underline
   autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=Red
   autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=Brown cterm=underline
@@ -67,4 +95,7 @@ hook_add = '''
   autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline
   autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline
   autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=blue
+
+  " 補完のpopupの選択中のハイライト
+  autocmd VimEnter,Colorscheme * :hi CocMenuSel ctermfg=255 ctermbg=242 guibg=#808080
 '''
