@@ -43,13 +43,6 @@ let g:mkdp_auto_close = 0
 [[plugins]]
 repo = 'mattn/vim-maketable'
 
-# Markdownのテーブル入力支援
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-hook_add = '''
-let g:table_mode_map_prefix = 'm'
-'''
-
 # LSPを利用してシンボル等をサイドバーで表示
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
@@ -79,3 +72,6 @@ repo = 'Shougo/context_filetype.vim'
 # Terraformのsyntax highlightなど
 [[plugins]]
 repo = 'hashivim/vim-terraform'
+hook_add = '''
+let g:terraform_fmt_on_save = 1
+'''
