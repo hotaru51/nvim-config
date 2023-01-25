@@ -88,14 +88,12 @@ hook_add = '''
   nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
   " エラーや警告等のハイライト
-  autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=Red cterm=underline
-  autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=Red
-  autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=Brown cterm=underline
-  autocmd VimEnter,Colorscheme * :hi CocWarningSign ctermfg=Brown
-  autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline
-  autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline
-  autocmd VimEnter,Colorscheme * :hi CursorColumn ctermbg=blue
-
-  " 補完のpopupの選択中のハイライト
-  autocmd VimEnter,Colorscheme * :hi CocMenuSel ctermfg=255 ctermbg=242 guibg=#808080
+  autocmd VimEnter,Colorscheme * :hi CocUnderline cterm=underline gui=undercurl
+  autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=125 cterm=underline guifg=#cc517a gui=undercurl
+  autocmd VimEnter,Colorscheme * :hi CocErrorSign ctermfg=125 guifg=#cc517a
+  autocmd VimEnter,Colorscheme * :hi CocWarningHighlight ctermfg=130 cterm=underline guifg=#c57339 gui=undercurl
+  autocmd VimEnter,Colorscheme * :hi CocWarningSign ctermfg=130 guifg=#c57339
+  autocmd VimEnter,Colorscheme * :hi CocInfoHighlight cterm=underline gui=undercurl
+  autocmd VimEnter,Colorscheme * :hi CocHintHighlight cterm=underline gui=undercurl
+  autocmd VimEnter,Colorscheme * :hi CocHighlightText ctermbg=238 guibg=#4d536b
 '''

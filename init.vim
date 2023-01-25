@@ -47,6 +47,9 @@ endif
 "#
 "########################################
 
+"24bit colorを有効化
+set termguicolors
+
 "インデント設定
 set cindent
 set autoindent
