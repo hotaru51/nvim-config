@@ -9,9 +9,9 @@ build = 'make'
 
 # カラースキーム
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
+repo = 'folke/tokyonight.nvim'
 hook_add = '''
-  autocmd VimEnter * nested colorscheme iceberg
+  autocmd VimEnter * nested colorscheme tokyonight-night
 '''
 
 # 検索位置(検索ヒット数)を表示
@@ -54,7 +54,7 @@ repo = 'itchyny/lightline.vim'
 depends = ['vim-fugitive']
 hook_add = '''
   let g:lightline = {}
-  let g:lightline.colorscheme = 'iceberg'
+  let g:lightline.colorscheme = 'tokyonight'
   let g:lightline.component_type = {
   \ 'linter_checking': 'left',
   \ 'linter_warnings': 'warning',
