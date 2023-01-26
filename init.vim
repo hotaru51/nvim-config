@@ -106,9 +106,6 @@ nnoremap <leader><C-l> <C-w>L
 set splitright
 set splitbelow
 
-"全角記号表示のための設定
-set ambiwidth=double
-
 "クリップボード操作
 if has('unix')
   vnoremap <leader>y "+y
