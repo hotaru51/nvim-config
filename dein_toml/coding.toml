@@ -6,8 +6,8 @@ hook_add = '''
   let g:indent_guides_guide_size = 1
   let g:indent_guides_start_level = 2
   let g:indent_guides_auto_colors = 0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=238 guibg=#383c4e
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236 guibg=#2c2e3c
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=238 guibg=#3b4261
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236 guibg=#2b3047
 '''
 
 # Rubyのend等を補完
