@@ -82,3 +82,6 @@ function! LightlineFugitive()
     return res
 endfunction
 '''
+
+[[plugins]]
+repo = 'jeetsukumaran/vim-buffergator'
