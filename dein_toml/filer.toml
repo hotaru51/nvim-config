@@ -1,23 +1,36 @@
+# nvim-treeのアイコンフォント対応
 [[plugins]]
-repo = 'preservim/nerdtree'
+repo = 'nvim-tree/nvim-web-devicons'
 
+# ファイラ本体
 [[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
-hook_add = '''
-  nmap <leader>e <Plug>NERDTreeTabsToggle<CR>
+repo = 'nvim-tree/nvim-tree.lua'
+lua_add = '''
+  -- netrwの無効化
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
+  -- nvim-treeの設定
+  require("nvim-tree").setup({
+    -- タブ間でnvim-treeの状態を同期
+    tab = {
+      sync = {
+        open = true,
+        close = true
+      }
+    },
+    -- gitignore対象のファイルをデフォルトで表示
+    git = {
+      ignore = false
+    },
+    -- dotfileをデフォルトで非表示、.gitignoreだけは常に表示する
+    filters = {
+      dotfiles = true,
+      exclude = {".gitignore"}
+    }
+  })
 '''
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
 hook_add = '''
-  let g:webdevicons_enable_nerdtree = 1
+  nmap <silent> <leader>e :NvimTreeToggle<CR>
 '''
-
-[[plugins]]
-repo = 'weilbith/nerdtree_choosewin-plugin'
-
-[[plugins]]
-repo = 't9md/vim-choosewin'
+depends = ['nvim-web-devicons']
