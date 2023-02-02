@@ -130,21 +130,29 @@ nnoremap <leader>P "*P
 " Perl providerを使用しないので無効化
 let g:loaded_perl_provider = 0
 
-" カレントウィンドウの行数の1/4のサイズでsplitしてターミナル表示
+" ウィンドウを下にsplitしてターミナル表示
 command! Sterminal call SplitTerminal()
-nnoremap <leader>tt :Sterminal<CR>i
+nnoremap <leader>ts :Sterminal<CR>i
 function! SplitTerminal()
-    let l:win_height = &lines / 4
-    execute 'botright '.l:win_height.'split'
+    execute 'rightbelow split'
     execute 'terminal'
     execute 'set nonumber'
 endfunction
 
-" vsplitしてターミナル表示
+" ウィンドウを右にvsplitしてターミナル表示
 command! Vterminal call VerticalSplitTerminal()
 nnoremap <leader>tv :Vterminal<CR>i
 function! VerticalSplitTerminal()
     execute 'rightbelow vertical split'
+    execute 'terminal'
+    execute 'set nonumber'
+endfunction
+
+" 新規タブを開いてターミナル表示
+command! Tabterminal call TabTerminal()
+nnoremap <leader>tt :Tabterminal<CR>i
+function! TabTerminal()
+    execute 'tabnew'
     execute 'terminal'
     execute 'set nonumber'
 endfunction
