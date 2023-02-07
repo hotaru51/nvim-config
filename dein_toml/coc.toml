@@ -15,7 +15,8 @@ hook_add = '''
   \ 'coc-yaml',
   \ 'coc-docker',
   \ 'coc-sh',
-  \ 'coc-go'
+  \ 'coc-go',
+  \ 'coc-cfn-lint'
   \ ]
 
   " シンボルハイライト等の表示更新の遅延
