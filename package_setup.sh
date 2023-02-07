@@ -32,7 +32,8 @@ function python3_setup() {
     pip3 install \
         neovim \
         pylint \
-        flake8
+        flake8 \
+        cfn-lint
 }
 
 # node
