@@ -33,6 +33,7 @@ function python3_setup() {
         neovim \
         pylint \
         flake8 \
+        autopep8 \
         cfn-lint
 }
 
