@@ -16,7 +16,8 @@ hook_add = '''
   \ 'coc-docker',
   \ 'coc-sh',
   \ 'coc-go',
-  \ 'coc-cfn-lint'
+  \ 'coc-cfn-lint',
+  \ 'coc-lists'
   \ ]
 
   " シンボルハイライト等の表示更新の遅延
@@ -87,6 +88,9 @@ hook_add = '''
 
   " diagnosticsの一覧表示
   nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+
+  " カレントディレクトリ配下のgrep
+  nnoremap <silent><nowait> <space>l  :<C-u>CocList grep<cr>
 
   " エラーや警告等のハイライト
   autocmd VimEnter,Colorscheme * :hi CocUnderline cterm=underline gui=undercurl
