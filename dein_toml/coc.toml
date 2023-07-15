@@ -30,9 +30,6 @@ hook_add = '''
   \ coc#refresh()
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-  " 補完候補の確定
-  inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
   function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
