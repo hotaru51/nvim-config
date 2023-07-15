@@ -89,6 +89,9 @@ hook_add = '''
   " diagnosticsの一覧表示
   nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 
+  " カレントディレクトリ配下のgrep
+  nnoremap <silent><nowait> <space>l  :<C-u>CocList grep<cr>
+
   " エラーや警告等のハイライト
   autocmd VimEnter,Colorscheme * :hi CocUnderline cterm=underline gui=undercurl
   autocmd VimEnter,Colorscheme * :hi CocErrorHighlight ctermfg=125 cterm=underline guifg=#f7768e gui=undercurl
