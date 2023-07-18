@@ -96,6 +96,7 @@ lua_post_source = '''
     highlight = {
       enable = true,
       disable = {
+        "bash",
         "terraform"
       }
     }
