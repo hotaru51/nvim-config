@@ -10,10 +10,6 @@ hook_add = '''
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236 guibg=#2b3047
 '''
 
-# Rubyのend等を補完
-[[plugins]]
-repo = 'tpope/vim-endwise'
-
 # 括弧の補完
 [[plugins]]
 repo = 'cohama/lexima.vim'

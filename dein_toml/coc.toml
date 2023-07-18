@@ -30,9 +30,6 @@ hook_add = '''
   \ coc#refresh()
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-  " 補完候補の確定
-  inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
   function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
@@ -73,6 +70,10 @@ hook_add = '''
   " シンボルのリネーム
   nmap <leader>rn <Plug>(coc-rename)
 
+  " コードのフォーマット
+  xmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+
   " ドキュメントのpopup内のスクロール
   if has('nvim-0.4.0') || has('patch-8.2.0750')
     nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -82,6 +83,9 @@ hook_add = '''
     vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   endif
+
+  " :Formatでカレントバッファのフォーマット
+  command! -nargs=0 Format :call CocActionAsync('format')
 
   " :Foldでcocによる折りたたみ
   command! -nargs=? Fold :call     CocAction('fold', <f-args>)
