@@ -71,3 +71,39 @@ repo = 'hashivim/vim-terraform'
 hook_add = '''
 let g:terraform_fmt_on_save = 1
 '''
+
+# Tree sitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+on_event = 'BufRead'
+lua_post_source = '''
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      "python",
+      "ruby",
+      "go",
+      "dockerfile",
+      "javascript",
+      "typescript",
+      "bash",
+      "hcl",
+      "terraform",
+      "toml",
+      "json",
+      "yaml"
+    },
+    highlight = {
+      enable = true,
+      disable = {
+        "bash",
+        "terraform"
+      }
+    }
+  }
+'''
+hook_add = '''
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+  set nofoldenable
+'''
