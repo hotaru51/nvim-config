@@ -83,5 +83,6 @@ function! LightlineFugitive()
 endfunction
 '''
 
+# バッファ操作
 [[plugins]]
 repo = 'jeetsukumaran/vim-buffergator'
