@@ -87,6 +87,9 @@ vnoremap <C-j> <Esc>
 "<C-j>でTerminal-Jobモードから抜ける
 tnoremap <C-j> <C-\><C-n>
 
+"Terminal-Jobモード内にて<S-space>で;2uが入力されてしまうのを防止
+tnoremap <S-space> <space>
+
 "タブ切り替え
 noremap <C-n> gt
 noremap <C-p> gT
