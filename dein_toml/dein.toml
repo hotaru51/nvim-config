@@ -83,5 +83,19 @@ function! LightlineFugitive()
 endfunction
 '''
 
+# バッファ操作
 [[plugins]]
 repo = 'jeetsukumaran/vim-buffergator'
+
+# ターミナル操作
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+rev = '*'
+lua_add = '''
+  require("toggleterm").setup{
+    open_mapping = [[<leader>tf]],
+    direction = 'float',
+    insert_mappings = false,
+    terminal_mappings = false
+  }
+'''
