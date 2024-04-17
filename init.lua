@@ -28,10 +28,10 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 2
 
 -- タブ設定
-vim.opt.ts = 4
-vim.opt.sts = 4
-vim.opt.sw = 4
-vim.opt.et = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- 改行コード、文字コード設定
 vim.opt.encoding = 'utf-8'
