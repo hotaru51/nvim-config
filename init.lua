@@ -96,7 +96,37 @@ vim.keymap.set({'n', 'v'}, '<Leader>P', '"*P', {noremap = true})
 vim.g.loaded_perl_provider = 0
 
 -- ウィンドウを下にsplitしてターミナル表示
+local function split_terminal()
+    vim.cmd [[
+        rightbelow split
+        terminal
+    ]]
+    vim.opt.number = false
+    vim.fn.feedkeys('i')
+end
+vim.api.nvim_create_user_command('Sterminal', split_terminal, {})
+vim.keymap.set('n', '<Leader>ts', '<Cmd>Sterminal<CR>')
 
 -- ウィンドウを右にvsplitしてターミナル表示
+local function vertical_split_terminal()
+    vim.cmd [[
+        rightbelow vertical split
+        terminal
+    ]]
+    vim.opt.number = false
+    vim.fn.feedkeys('i')
+end
+vim.api.nvim_create_user_command('Vterminal', vertical_split_terminal, {})
+vim.keymap.set('n', '<Leader>tv', '<Cmd>Vterminal<CR>')
 
 -- 新規タブを開いてターミナル表示
+local function tab_terminal()
+    vim.cmd [[
+        tabnew
+        terminal
+    ]]
+    vim.opt.number = false
+    vim.fn.feedkeys('i')
+end
+vim.api.nvim_create_user_command('Tabterminal', tab_terminal, {})
+vim.keymap.set('n', '<Leader>tt', '<Cmd>Tabterminal<CR>')
