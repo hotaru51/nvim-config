@@ -7,6 +7,41 @@ vim.g.mapleader = ' '
 -- #
 -- ##################################################
 
+dein_dir = vim.fn.expand('~/.cache/dein')
+dein_repo_dir = dein_dir .. '/repo/github.com/Shougo/dein.vim'
+dein_toml_dir = vim.env.XDG_CONFIG_HOME .. '/nvim/dein_toml'
+
+if vim.fn.isdirectory(dein_repo_dir) == 0 then
+    vim.fn.system({
+        'git',
+        'clone',
+        'https://github.com/Shougo/dein.vim.git',
+        dein_repo_dir
+    })
+end
+
+vim.opt.runtimepath:prepend(dein_repo_dir)
+
+if vim.fn['dein#load_state'](dein_dir) == 1 then
+    vim.fn['dein#begin'](dein_dir)
+
+    -- toml読み込み
+    vim.fn['dein#load_toml'](dein_toml_dir .. '/dein.toml')
+    vim.fn['dein#load_toml'](dein_toml_dir .. '/filer.toml')
+    vim.fn['dein#load_toml'](dein_toml_dir .. '/coc.toml')
+    vim.fn['dein#load_toml'](dein_toml_dir .. '/coding.toml')
+
+    vim.fn['dein#end']()
+    vim.fn['dein#save_state']()
+end
+
+vim.cmd 'filetype plugin indent on'
+vim.cmd 'syntax enable'
+
+if vim.fn['dein#check_install']() == 1 then
+    vim.fn['dein#install']()
+end
+
 -- ##################################################
 -- #
 -- # vim基本設定
