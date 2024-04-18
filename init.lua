@@ -75,10 +75,25 @@ vim.keymap.set('n', '<Leader><C-k>', '<C-w>K', {noremap = true})
 vim.keymap.set('n', '<Leader><C-l>', '<C-w>L', {noremap = true})
 
 -- split時の挙動設定
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- クリップボード操作
+if vim.fn.has('unix') == 1 then
+    vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', {noremap = true})
+    vim.keymap.set({'n', 'v'}, '<Leader>d', '"+d', {noremap = true})
+    vim.keymap.set({'n', 'v'}, '<Leader>D', '"+D', {noremap = true})
+else
+    vim.keymap.set({'n', 'v'}, '<Leader>y', '"*y', {noremap = true})
+    vim.keymap.set({'n', 'v'}, '<Leader>d', '"*d', {noremap = true})
+    vim.keymap.set({'n', 'v'}, '<Leader>D', '"*D', {noremap = true})
+end
+
+vim.keymap.set({'n', 'v'}, '<Leader>p', '"*p', {noremap = true})
+vim.keymap.set({'n', 'v'}, '<Leader>P', '"*P', {noremap = true})
 
 -- Perl providerを使用しないので無効化
+vim.g.loaded_perl_provider = 0
 
 -- ウィンドウを下にsplitしてターミナル表示
 
