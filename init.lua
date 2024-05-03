@@ -8,7 +8,7 @@ vim.g.mapleader = ' '
 -- ##################################################
 
 dein_dir = vim.fn.expand('~/.cache/dein')
-dein_repo_dir = dein_dir .. '/repo/github.com/Shougo/dein.vim'
+dein_repo_dir = dein_dir .. '/repos/github.com/Shougo/dein.vim'
 dein_toml_dir = vim.env.XDG_CONFIG_HOME .. '/nvim/dein_toml'
 
 if vim.fn.isdirectory(dein_repo_dir) == 0 then
