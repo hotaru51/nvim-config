@@ -47,8 +47,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- 改行コード、文字コード設定
-vim.opt.encoding = 'utf-8'
-vim.opt.fileformat = 'unix'
+vim.opt.fileencodings = {'ucs-bom', 'utf-8', 'cp932', 'default', 'latin1'}
+vim.opt.fileformats = {'unix', 'dos'}
 
 -- 不要なファイルの生成抑止
 vim.opt.undofile = false
