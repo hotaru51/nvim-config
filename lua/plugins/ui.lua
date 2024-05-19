@@ -17,4 +17,16 @@ return {
       vim.g.winresizer_gui_start_key = '<Leader>W'
     end,
   },
+
+  -- ターミナル表示
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {
+      open_mapping = [[<leader>tf]],
+      direction = 'float',
+      insert_mappings = false,
+      terminal_mappings = false,
+    },
+  },
 }
