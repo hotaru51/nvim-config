@@ -70,4 +70,7 @@ return {
       terminal_mappings = false,
     },
   },
+
+  -- バッファ操作
+  'jeetsukumaran/vim-buffergator',
 }
