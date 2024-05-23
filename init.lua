@@ -3,44 +3,32 @@ vim.g.mapleader = ' '
 
 -- ##################################################
 -- #
--- # dein
+-- # lazy.nvim
 -- #
 -- ##################################################
 
-dein_dir = vim.fn.expand('~/.cache/dein')
-dein_repo_dir = dein_dir .. '/repos/github.com/Shougo/dein.vim'
-dein_toml_dir = vim.env.XDG_CONFIG_HOME .. '/nvim/dein_toml'
-
-if vim.fn.isdirectory(dein_repo_dir) == 0 then
-    vim.fn.system({
-        'git',
-        'clone',
-        'https://github.com/Shougo/dein.vim.git',
-        dein_repo_dir
-    })
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
 end
-
-vim.opt.runtimepath:prepend(dein_repo_dir)
-
-if vim.fn['dein#load_state'](dein_dir) == 1 then
-    vim.fn['dein#begin'](dein_dir)
-
-    -- toml読み込み
-    vim.fn['dein#load_toml'](dein_toml_dir .. '/dein.toml')
-    vim.fn['dein#load_toml'](dein_toml_dir .. '/filer.toml')
-    vim.fn['dein#load_toml'](dein_toml_dir .. '/coc.toml')
-    vim.fn['dein#load_toml'](dein_toml_dir .. '/coding.toml')
-
-    vim.fn['dein#end']()
-    vim.fn['dein#save_state']()
-end
-
-vim.cmd 'filetype plugin indent on'
-vim.cmd 'syntax enable'
-
-if vim.fn['dein#check_install']() == 1 then
-    vim.fn['dein#install']()
-end
+vim.opt.rtp:prepend(lazypath)
+require('lazy').setup('plugins', {
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'netrw',
+        'netrwPlugin',
+      }
+    }
+  }
+})
 
 -- ##################################################
 -- #
@@ -69,8 +57,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- 改行コード、文字コード設定
-vim.opt.encoding = 'utf-8'
-vim.opt.fileformat = 'unix'
+vim.opt.fileencodings = {'ucs-bom', 'utf-8', 'cp932', 'default', 'latin1'}
+vim.opt.fileformats = {'unix', 'dos'}
 
 -- 不要なファイルの生成抑止
 vim.opt.undofile = false
