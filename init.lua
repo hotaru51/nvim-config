@@ -44,7 +44,7 @@ vim.opt.cindent = true
 vim.opt.autoindent = true
 
 -- 表示設定
-vim.cmd 'syntax on'
+vim.cmd('syntax on')
 vim.opt.list = true
 vim.opt.number = true
 vim.opt.cursorline = true
@@ -103,13 +103,13 @@ vim.opt.splitbelow = true
 
 -- クリップボード操作
 if vim.fn.has('unix') == 1 then
-    vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', {noremap = true})
-    vim.keymap.set({'n', 'v'}, '<Leader>d', '"+d', {noremap = true})
-    vim.keymap.set({'n', 'v'}, '<Leader>D', '"+D', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>d', '"+d', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>D', '"+D', {noremap = true})
 else
-    vim.keymap.set({'n', 'v'}, '<Leader>y', '"*y', {noremap = true})
-    vim.keymap.set({'n', 'v'}, '<Leader>d', '"*d', {noremap = true})
-    vim.keymap.set({'n', 'v'}, '<Leader>D', '"*D', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>y', '"*y', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>d', '"*d', {noremap = true})
+  vim.keymap.set({'n', 'v'}, '<Leader>D', '"*D', {noremap = true})
 end
 
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"*p', {noremap = true})
@@ -120,36 +120,36 @@ vim.g.loaded_perl_provider = 0
 
 -- ウィンドウを下にsplitしてターミナル表示
 local function split_terminal()
-    vim.cmd [[
-        rightbelow split
-        terminal
-    ]]
-    vim.opt.number = false
-    vim.fn.feedkeys('i')
+  vim.cmd([[
+  rightbelow split
+  terminal
+  ]])
+  vim.opt.number = false
+  vim.fn.feedkeys('i')
 end
 vim.api.nvim_create_user_command('Sterminal', split_terminal, {})
 vim.keymap.set('n', '<Leader>ts', '<Cmd>Sterminal<CR>')
 
 -- ウィンドウを右にvsplitしてターミナル表示
 local function vertical_split_terminal()
-    vim.cmd [[
-        rightbelow vertical split
-        terminal
-    ]]
-    vim.opt.number = false
-    vim.fn.feedkeys('i')
+  vim.cmd([[
+  rightbelow vertical split
+  terminal
+  ]])
+  vim.opt.number = false
+  vim.fn.feedkeys('i')
 end
 vim.api.nvim_create_user_command('Vterminal', vertical_split_terminal, {})
 vim.keymap.set('n', '<Leader>tv', '<Cmd>Vterminal<CR>')
 
 -- 新規タブを開いてターミナル表示
 local function tab_terminal()
-    vim.cmd [[
-        tabnew
-        terminal
-    ]]
-    vim.opt.number = false
-    vim.fn.feedkeys('i')
+  vim.cmd([[
+  tabnew
+  terminal
+  ]])
+  vim.opt.number = false
+  vim.fn.feedkeys('i')
 end
 vim.api.nvim_create_user_command('Tabterminal', tab_terminal, {})
 vim.keymap.set('n', '<Leader>tt', '<Cmd>Tabterminal<CR>')

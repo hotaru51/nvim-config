@@ -14,16 +14,16 @@ return {
     'itchyny/lightline.vim',
     config = function()
       vim.cmd([[
-        function! LightlineFugitive()
-            let l:res = ''
+      function! LightlineFugitive()
+        let l:res = ''
 
-            let l:b = FugitiveHead()
-            if strlen(b) > 0
-                let res = ' '.l:b
-            endif
+        let l:b = FugitiveHead()
+        if strlen(b) > 0
+          let res = ' '.l:b
+        endif
 
-            return res
-        endfunction
+        return res
+      endfunction
       ]])
 
       vim.g.lightline = {
