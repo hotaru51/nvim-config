@@ -68,6 +68,7 @@ return {
       direction = 'float',
       insert_mappings = false,
       terminal_mappings = false,
+      auto_scroll = false,
     },
   },
 
