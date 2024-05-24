@@ -26,6 +26,9 @@ return {
       -- statuscolumnを常に1列は表示する
       vim.opt.signcolumn = 'auto:1-9'
 
+      -- lexima.vimのデフォルトルールを設定
+      vim.fn['lexima#set_default_rules']()
+
       local keyset = vim.keymap.set
 
       -- 自動補完
@@ -40,7 +43,8 @@ return {
       keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
       -- 補完の確定
-      keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+      -- lexima.vimの動作と共存させる
+      keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<C-r>=lexima#expand('<LT>CR>', 'i')\<CR><c-r>=coc#on_enter()\<CR>"]], opts)
 
       -- <c-Space>での補完の実行
       keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
@@ -128,5 +132,8 @@ return {
       vim.api.nvim_create_autocmd(event, {pattern = {'*'}, command = 'hi CocHintHighlight cterm=underline gui=undercurl'})
       vim.api.nvim_create_autocmd(event, {pattern = {'*'}, command = 'hi CocHighlightText ctermbg=238 guibg=#525c88'})
     end,
+    dependencies = {
+      'cohama/lexima.vim',
+    }
   },
 }
