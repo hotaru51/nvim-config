@@ -59,4 +59,11 @@ return {
 
   -- バッファ操作
   'jeetsukumaran/vim-buffergator',
+
+  -- スクロールバー
+  {
+    'petertriho/nvim-scrollbar',
+    main = 'scrollbar',
+    config = true,
+  }
 }
