@@ -115,13 +115,12 @@ return {
 
   -- 検索位置(検索ヒット数)を表示
   {
-    'osyo-manga/vim-anzu',
-    keys = {
-      {'n', '<Plug>(anzu-n-with-echo)', mode = 'n'},
-      {'N', '<Plug>(anzu-N-with-echo)', mode = 'n'},
-      {'*', '<Plug>(anzu-star-with-echo)', mode = 'n'},
-      {'#', '<Plug>(anzu-sharp-with-echo)', mode = 'n'},
-      {'<Esc><Esc>', '<Plug>(anzu-clear-search-status)', mode = 'n'},
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require("scrollbar.handlers.search").setup()
+    end,
+    dependencies = {
+      'petertriho/nvim-scrollbar',
     },
   },
 
