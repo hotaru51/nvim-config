@@ -11,42 +11,27 @@ return {
 
   -- ステータスラインカスタマイズ
   {
-    'itchyny/lightline.vim',
-    config = function()
-      vim.cmd([[
-      function! LightlineFugitive()
-        let l:res = ''
-
-        let l:b = FugitiveHead()
-        if strlen(b) > 0
-          let res = ' '.l:b
-        endif
-
-        return res
-      endfunction
-      ]])
-
-      vim.g.lightline = {
-        colorscheme = 'tokyonight',
-        component_function = {
-          gitbranch = 'LightlineFugitive'
-        },
-        active = {
-          left = {
-            {'mode', 'paste'},
-            {'gitbranch', 'readonly', 'filename', 'modified'},
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        section_separators = {left = nil, right = nil},
+        component_separators = {left = '|', right = '|'},
+        theme = 'tokyonight',
+      },
+      sections = {
+        lualine_x = {
+          'encoding',
+          {
+            'fileformat',
+            icons_enabled = false,
           },
-          right = {
-            {'lineinfo'},
-            {'percent'},
-            {'fileformat', 'fileencoding', 'filetype'},
-          },
+          'filetype',
         },
-      }
-    end,
+      },
+    },
     dependencies = {
       'folke/tokyonight.nvim',
-      'tpope/vim-fugitive',
+      'nvim-tree/nvim-web-devicons',
     },
   },
 
@@ -74,4 +59,26 @@ return {
 
   -- バッファ操作
   'jeetsukumaran/vim-buffergator',
+
+  -- スクロールバー
+  {
+    'petertriho/nvim-scrollbar',
+    config = function()
+      local colors = require("tokyonight.colors").setup()
+
+      require("scrollbar").setup({
+        handle = {
+          color = colors.bg_highlight,
+        },
+        marks = {
+          Search = { color = colors.orange },
+          Error = { color = colors.error },
+          Warn = { color = colors.warning },
+          Info = { color = colors.info },
+          Hint = { color = colors.hint },
+          Misc = { color = colors.purple },
+        },
+      })
+    end,
+  }
 }
