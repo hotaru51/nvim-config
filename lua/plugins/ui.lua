@@ -14,8 +14,6 @@ return {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
-        section_separators = {left = nil, right = nil},
-        component_separators = {left = '|', right = '|'},
         theme = 'tokyonight',
       },
       sections = {
