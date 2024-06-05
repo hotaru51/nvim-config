@@ -5,7 +5,7 @@ return {
     branch = 'release',
     config = function()
       -- インストールするプラグイン
-      vim.g.coc_global_extensions = {
+      local extensions = {
         'coc-solargraph',
         'coc-pyright',
         'coc-tsserver',
@@ -19,6 +19,13 @@ return {
         'coc-cfn-lint',
         'coc-lists',
       }
+
+      -- 環境変数 HTR_GH_COPILOT が enabled の場合は coc-copilotを追加
+      if vim.env.HTR_GH_COPILOT == 'enabled' then
+        table.insert(extensions, 'coc-copilot')
+      end
+
+      vim.g.coc_global_extensions = extensions
 
       -- シンボルハイライト等の表示更新の遅延
       vim.opt.updatetime = 300
