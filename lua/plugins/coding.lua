@@ -80,6 +80,8 @@ return {
           'dockerfile',
           'javascript',
           'typescript',
+          'css',
+          'styled',
           'bash',
           'hcl',
           'terraform',
