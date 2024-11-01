@@ -23,6 +23,9 @@
   "python.linting.flake8CategorySeverity.F": "Warning",
   "python.linting.flake8CategorySeverity.W": "Warning",
   "python.linting.flake8Enabled": true,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.functionReturnTypes": true,
   "yaml.customTags": [
     "!And",
     "!And sequence",
