@@ -18,6 +18,7 @@ return {
         'coc-go',
         'coc-cfn-lint',
         'coc-lists',
+        'coc-sql',
       }
 
       -- 環境変数 HTR_GH_COPILOT が enabled の場合は coc-copilotを追加
