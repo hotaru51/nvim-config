@@ -56,6 +56,14 @@
     "!Sub",
     "!Sub sequence"
   ],
+  "sql.formatOptions": {
+    "tabWidth": 2,
+    "keywordCase": "upper",
+    "dataTypeCase": "upper",
+    "functionCase": "upper",
+    "logicalOperatorNewline": "before",
+    "linesBetweenQueries": 2
+  },
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
