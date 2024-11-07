@@ -76,6 +76,9 @@ return {
           Hint = {color = colors.hint},
           Misc = {color = colors.purple},
         },
+        handlers = {
+          cursor = false,
+        },
       })
     end,
   }
