@@ -62,7 +62,10 @@ return {
       keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
 
       -- 定義元参照等の移動
-      keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+      keyset("n", "gdd", "<Plug>(coc-definition)", {silent = true})
+      keyset("n", "gds", [[<CMD>call CocAction('jumpDefinition', 'split')<CR>]], {silent = true})
+      keyset("n", "gdv", [[<CMD>call CocAction('jumpDefinition', 'vsplit')<CR>]], {silent = true})
+      keyset("n", "gdt", [[<CMD>call CocAction('jumpDefinition', 'tabe')<CR>]], {silent = true})
       keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
       keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
       keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
