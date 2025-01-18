@@ -7,13 +7,7 @@ return {
   },
 
   -- 括弧の補完
-  {
-    'cohama/lexima.vim',
-    init = function()
-      -- coc.nvimの<CR>のキーマップと競合するため、coc.nvim側でキーマップを設定する
-      vim.g.lexima_no_default_rules = 1
-    end,
-  },
+  'cohama/lexima.vim',
 
   -- Markdownプレビュー
   {
