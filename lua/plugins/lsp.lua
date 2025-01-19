@@ -114,4 +114,18 @@ return {
 
   -- nvim-cmpのシグニチャ補完ソース
   'hrsh7th/cmp-nvim-lsp-signature-help',
+
+  -- Diagnostics用のUI
+  {
+    'folke/trouble.nvim',
+    opts = {},
+    cmd = 'Trouble',
+    keys = {
+          {'<leader>aA', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Diagnostics (Trouble)'},
+          {'<leader>aa', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
+          -- TODO: splitさせたいが方法がわからない
+          {'gd', '<cmd>Trouble lsp_definitions<CR>', desc = 'LSP Definitions'},
+          {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
+    },
+  },
 }
