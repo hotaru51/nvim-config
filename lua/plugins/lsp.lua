@@ -8,7 +8,6 @@ return {
   -- nvim-lspconfigとmasonを連携させるプラグイン
   {
     'williamboman/mason-lspconfig.nvim',
-    config = true,
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -18,16 +17,33 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
+      -- mason-lspconfigに渡すhandler
+      local handlers = {
+        -- デフォルト
+        function(server_name)
+          require("lspconfig")[server_name].setup({})
+        end,
+      }
+
+      -- mason-lspconfigの設定
+      require('mason-lspconfig').setup({
+        -- 自動インストールするLanguage Server
+        ensure_installed = {
+          'pyright',
+          'solargraph',
+          'gopls',
+        },
+        automatic_installation = true,
+        handlers = handlers,
+      })
+
       -- hover時のwindowのborderの設定
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
         vim.lsp.handlers.hover,
         {
           border = 'rounded',
         }
       )
-
-      require('lspconfig').pyright.setup({})
-      require('lspconfig').solargraph.setup({})
     end,
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
