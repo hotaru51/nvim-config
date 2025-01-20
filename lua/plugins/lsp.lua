@@ -32,6 +32,8 @@ return {
           'pyright',
           'solargraph',
           'gopls',
+          'jsonls',
+          'yamlls',
         },
         automatic_installation = true,
         handlers = handlers,
