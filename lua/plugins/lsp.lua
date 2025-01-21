@@ -34,6 +34,7 @@ return {
           'gopls',
           'jsonls',
           'yamlls',
+          'terraformls',
         },
         automatic_installation = true,
         handlers = handlers,
