@@ -17,12 +17,26 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
+      -- snippet supportの有効化
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+
       -- mason-lspconfigに渡すhandler
       local handlers = {
         -- デフォルト
         function(server_name)
           require("lspconfig")[server_name].setup({})
         end,
+        html = function()
+          require("lspconfig").html.setup({
+            capabilities = capabilities
+          })
+        end,
+        cssls = function()
+          require("lspconfig").cssls.setup({
+            capabilities = capabilities
+          })
+        end
       }
 
       -- mason-lspconfigの設定
