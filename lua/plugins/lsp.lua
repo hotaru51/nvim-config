@@ -33,6 +33,8 @@ return {
           'solargraph',
           'gopls',
           'jsonls',
+          'eslint',
+          'ts_ls',
           'yamlls',
           'terraformls',
         },
