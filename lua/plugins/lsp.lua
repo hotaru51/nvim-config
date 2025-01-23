@@ -35,6 +35,8 @@ return {
           'jsonls',
           'eslint',
           'ts_ls',
+          'html',
+          'cssls',
           'yamlls',
           'terraformls',
         },
