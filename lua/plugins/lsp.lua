@@ -135,7 +135,7 @@ return {
               end
             end,
             s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
           }),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -159,6 +159,29 @@ return {
           end, { "i", "s" }),
         }),
 
+        -- / の補完
+        cmp.setup.cmdline('/', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            {name = 'buffer'}
+          }
+        }),
+
+        -- : の補完
+        cmp.setup.cmdline(':', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            {name = 'path'}
+          }, {
+            {
+              name = 'cmdline',
+              option = {
+                ignore_cmds = {'Man', '!'}
+              }
+            }
+          })
+        }),
+
         -- UI設定
         window = {
           completion = cmp.config.window.bordered(),
@@ -179,6 +202,9 @@ return {
 
   -- nvim-cmpのファイルパス補完ソース
   'hrsh7th/cmp-path',
+
+  -- nvim-cmpのコマンドラインモードの補完ソース
+  'hrsh7th/cmp-cmdline',
 
   -- nvim-cmpのシグニチャ補完ソース
   'hrsh7th/cmp-nvim-lsp-signature-help',
