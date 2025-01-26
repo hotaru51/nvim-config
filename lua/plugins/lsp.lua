@@ -205,6 +205,18 @@ return {
   -- nvim-cmpのシグニチャ補完ソース
   'hrsh7th/cmp-nvim-lsp-signature-help',
 
+  -- nvim-cmpのGitHub Copilotの補完ソース
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function ()
+      require("copilot_cmp").setup()
+    end,
+    cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
+    dependencies = {
+      'zbirenbaum/copilot.lua',
+    },
+  },
+
   -- スニペット集
   "rafamadriz/friendly-snippets",
 
