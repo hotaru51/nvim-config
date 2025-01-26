@@ -25,18 +25,10 @@ return {
       local handlers = {
         -- デフォルト
         function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
-        html = function()
-          require("lspconfig").html.setup({
+          require("lspconfig")[server_name].setup({
             capabilities = capabilities
           })
         end,
-        cssls = function()
-          require("lspconfig").cssls.setup({
-            capabilities = capabilities
-          })
-        end
       }
 
       -- mason-lspconfigの設定
