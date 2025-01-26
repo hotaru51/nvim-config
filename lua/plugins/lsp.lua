@@ -103,6 +103,7 @@ return {
           {name = 'nvim_lsp'},
           {name = 'buffer'},
           {name = 'path'},
+          {name = 'omni'},
           {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
         }),
@@ -194,6 +195,9 @@ return {
 
   -- nvim-cmpのファイルパス補完ソース
   'hrsh7th/cmp-path',
+
+  -- nvim-cmpのオムニ補完のソース
+  'hrsh7th/cmp-omni',
 
   -- nvim-cmpのコマンドラインモードの補完ソース
   'hrsh7th/cmp-cmdline',
