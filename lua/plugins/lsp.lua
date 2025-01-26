@@ -29,6 +29,22 @@ return {
             capabilities = capabilities
           })
         end,
+
+        lua_ls = function()
+          require("lspconfig").lua_ls.setup({
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                diagnostics = {
+                  -- vimでWARNINGが出るのを抑止
+                  globals = {
+                    'vim',
+                  },
+                },
+              },
+            },
+          })
+        end,
       }
 
       -- mason-lspconfigの設定
@@ -48,6 +64,8 @@ return {
           'bashls',
           'dockerls',
           'docker_compose_language_service',
+          'lua_ls',
+          'vimls',
         },
         automatic_installation = true,
         handlers = handlers,
