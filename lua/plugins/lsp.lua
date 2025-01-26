@@ -13,6 +13,51 @@ return {
     },
   },
 
+  -- none-ls.nvimが依存
+  'nvim-lua/plenary.nvim',
+
+  -- none-lsの追加ソース
+  'nvimtools/none-ls-extras.nvim',
+
+  -- Linter、Formatterを扱うプラグイン
+  {
+    'nvimtools/none-ls.nvim',
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          require("none-ls.diagnostics.flake8"),
+        },
+      })
+    end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvimtools/none-ls-extras.nvim',
+    },
+  },
+
+  -- masonとnone-lsを連携させるプラグイン
+  {
+    'jay-babu/mason-null-ls.nvim',
+    event = {'BufReadPre', 'BufNewFile'},
+    dependencies = {
+      'williamboman/mason.nvim',
+      'nvimtools/none-ls.nvim',
+    },
+    config = function()
+      require('mason-null-ls').setup({
+        ensure_installed = {
+          'flake8',
+          'eslint',
+          'cfn-lint',
+          'sql-formatter',
+        },
+        automatic_installation = true,
+        handlers = {},
+      })
+    end,
+  },
+
   -- NeoVimのLSP設定補助プラグイン
   {
     'neovim/nvim-lspconfig',
