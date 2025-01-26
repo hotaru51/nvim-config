@@ -27,7 +27,10 @@ require('lazy').setup('plugins', {
         'netrwPlugin',
       }
     }
-  }
+  },
+  rocks = {
+    enabled = false,
+  },
 })
 
 -- ##################################################
