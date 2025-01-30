@@ -130,6 +130,9 @@ return {
         end
       })
 
+      -- <Leader>h でhoverするように設定
+      vim.keymap.set('n', '<Leader>h', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+
       -- hover時のwindowのborderの設定
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
         vim.lsp.handlers.hover,
