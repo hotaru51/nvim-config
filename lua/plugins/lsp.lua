@@ -27,6 +27,9 @@ return {
       null_ls.setup({
         sources = {
           require("none-ls.diagnostics.flake8"),
+          require("none-ls.diagnostics.eslint_d"),
+          require("none-ls.formatting.eslint_d"),
+          require("none-ls.code_actions.eslint_d"),
         },
       })
     end,
@@ -48,7 +51,7 @@ return {
       require('mason-null-ls').setup({
         ensure_installed = {
           'flake8',
-          'eslint',
+          'eslint_d',
           'cfn-lint',
           'sql-formatter',
         },
