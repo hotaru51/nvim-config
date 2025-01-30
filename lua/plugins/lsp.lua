@@ -100,7 +100,6 @@ return {
           'solargraph',
           'gopls',
           'jsonls',
-          'eslint',
           'ts_ls',
           'html',
           'cssls',
