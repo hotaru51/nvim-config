@@ -304,10 +304,7 @@ return {
     opts = {},
     cmd = 'Trouble',
     keys = {
-          {'<leader>aA', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Diagnostics (Trouble)'},
-          {'<leader>aa', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
-          -- TODO: splitさせたいが方法がわからない
-          {'gd', '<cmd>Trouble lsp_definitions<CR>', desc = 'LSP Definitions'},
+          {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
           {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
     },
   },
