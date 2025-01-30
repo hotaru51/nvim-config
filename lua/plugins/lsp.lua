@@ -118,6 +118,18 @@ return {
         handlers = handlers,
       })
 
+      -- エラー箇所にカーソルを合わせたときに自動でhover
+      vim.o.updatetime = 300
+      vim.diagnostic.config({
+        float = { border = "rounded" },
+      })
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+        callback = function ()
+          vim.diagnostic.open_float(nil, {focus=false})
+        end
+      })
+
       -- hover時のwindowのborderの設定
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
         vim.lsp.handlers.hover,
