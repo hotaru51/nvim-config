@@ -307,8 +307,8 @@ return {
     opts = {},
     cmd = 'Trouble',
     keys = {
-          {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
-          {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
+      {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
+      {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
     },
   },
 
