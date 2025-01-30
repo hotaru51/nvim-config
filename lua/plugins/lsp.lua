@@ -308,4 +308,14 @@ return {
           {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
     },
   },
+
+  -- カーソル下の単語のハイライト
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require('illuminate').configure({
+        delay = 300,
+      })
+    end
+  },
 }
