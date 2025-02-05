@@ -140,6 +140,13 @@ return {
           border = 'rounded',
         }
       )
+
+      -- 定義元ジャンプ
+      -- TODO: ジャンプできない場合も分割されてしまうので飛べない場合は何もしないようにしたい
+      vim.keymap.set('n', 'gdd', '<CMD>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', 'gds', '<CMD>split | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', 'gdv', '<CMD>vsplit | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', 'gdt', '<CMD>tab split | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
     end,
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
