@@ -118,20 +118,16 @@ return {
         handlers = handlers,
       })
 
-      -- エラー箇所にカーソルを合わせたときに自動でhover
-      vim.o.updatetime = 300
+
+      -- <Leader>hh でhoverするように設定
+      vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+      -- <Leader>he でdiagnosticをfloatで表示
+      vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>', {noremap = true, silent = true})
+
+      -- diagnosticsのfloatのborderの設定
       vim.diagnostic.config({
         float = { border = "rounded" },
       })
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-        callback = function ()
-          vim.diagnostic.open_float(nil, {focus=false})
-        end
-      })
-
-      -- <Leader>h でhoverするように設定
-      vim.keymap.set('n', '<Leader>h', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 
       -- hover時のwindowのborderの設定
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
