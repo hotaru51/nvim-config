@@ -118,7 +118,6 @@ return {
         handlers = handlers,
       })
 
-
       -- <Leader>hh でhoverするように設定
       vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
       -- <Leader>he でdiagnosticをfloatで表示
@@ -136,13 +135,6 @@ return {
           border = 'rounded',
         }
       )
-
-      -- 定義元ジャンプ
-      -- TODO: ジャンプできない場合も分割されてしまうので飛べない場合は何もしないようにしたい
-      vim.keymap.set('n', 'gdd', '<CMD>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-      vim.keymap.set('n', 'gds', '<CMD>split | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-      vim.keymap.set('n', 'gdv', '<CMD>vsplit | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-      vim.keymap.set('n', 'gdt', '<CMD>tab split | lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
     end,
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
@@ -327,6 +319,33 @@ return {
     keys = {
       {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
       {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
+    },
+  },
+
+  -- LSP関連のUI
+  {
+    'nvimdev/lspsaga.nvim',
+    config = function()
+      require('lspsaga').setup({
+        definition = {
+          keys = {
+            edit = '<C-o>',
+            split = '<C-s>',
+            vsplit = '<C-v>',
+            tabe = '<C-t>',
+          },
+        },
+      })
+
+      -- 定義元ジャンプ
+      vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', {noremap = true, silent = true})
+
+      -- リネーム
+      vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', {noremap = true, silent = true})
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
     },
   },
 
