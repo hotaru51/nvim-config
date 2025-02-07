@@ -179,6 +179,7 @@ return {
           {name = 'buffer'},
           {name = 'path'},
           {name = 'omni'},
+          {name = 'nvim_lua'},
           {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
         }),
@@ -276,6 +277,9 @@ return {
 
   -- nvim-cmpのコマンドラインモードの補完ソース
   'hrsh7th/cmp-cmdline',
+
+  -- NeoVimのLua APIの補完ソース
+  'hrsh7th/cmp-nvim-lua',
 
   -- nvim-cmpのシグニチャ補完ソース
   'hrsh7th/cmp-nvim-lsp-signature-help',
