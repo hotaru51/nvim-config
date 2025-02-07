@@ -65,6 +65,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
+      -- lspconfig-bundler呼び出し
+      require('lspconfig-bundler').setup()
+
       -- snippet supportの有効化
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -140,6 +143,9 @@ return {
       'williamboman/mason-lspconfig.nvim',
     },
   },
+
+  -- Rubyでbundlerを考慮してLanguage Serverを起動してくれる
+  'mihyaeru21/nvim-lspconfig-bundler',
 
   -- 補完ウィンドウにアイコンを表示
   'onsails/lspkind.nvim',
