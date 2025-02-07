@@ -100,6 +100,7 @@ return {
       })
 
       require('telescope').load_extension('fzf')
+      require("telescope").load_extension("fidget")
 
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Telescope find files'})
@@ -109,8 +110,9 @@ return {
       vim.keymap.set('n', '<leader>fr', builtin.resume, {desc = 'Telescope resume'})
     end,
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-fzf-native.nvim',
+      'j-hui/fidget.nvim',
     },
   },
 
@@ -118,6 +120,12 @@ return {
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make'
+  },
+
+  -- Language Serverのステータス表示
+  {
+    'j-hui/fidget.nvim',
+    config = true,
   },
 }
 
