@@ -182,6 +182,7 @@ return {
           {name = 'nvim_lua'},
           {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
+          {name = 'copilot'}
         }),
 
         -- キーマッピング
