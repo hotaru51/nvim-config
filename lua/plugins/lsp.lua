@@ -318,7 +318,6 @@ return {
     cmd = 'Trouble',
     keys = {
       {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
-      {'gr', '<cmd>Trouble lsp_references<CR>', desc = 'LSP References'},
     },
   },
 
@@ -335,10 +334,21 @@ return {
             tabe = '<C-t>',
           },
         },
+        finder = {
+          keys = {
+            edit = '<C-o>',
+            split = '<C-s>',
+            vsplit = '<C-v>',
+            tabe = '<C-t>',
+          },
+        },
       })
 
       -- 定義元ジャンプ
       vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', {noremap = true, silent = true})
+
+      -- 参照元ジャンプ
+      vim.keymap.set('n', 'gr', '<CMD>Lspsaga finder ref<CR>', {noremap = true, silent = true})
 
       -- リネーム
       vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', {noremap = true, silent = true})
