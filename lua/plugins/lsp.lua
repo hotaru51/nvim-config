@@ -412,6 +412,12 @@ return {
             tabe = '<C-t>',
           },
         },
+        lightbulb = {
+          sign = false,
+        },
+        ui = {
+          code_action = '',
+        },
       })
 
       -- 定義元ジャンプ
