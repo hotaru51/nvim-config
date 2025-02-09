@@ -185,6 +185,18 @@ return {
 
       -- :Formatでフォーマットを実行
       vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
+
+      -- Diagnosticsのアイコン指定
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '',
+          },
+        },
+      })
     end,
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
@@ -399,6 +411,12 @@ return {
             vsplit = '<C-v>',
             tabe = '<C-t>',
           },
+        },
+        lightbulb = {
+          sign = false,
+        },
+        ui = {
+          code_action = '',
         },
       })
 
