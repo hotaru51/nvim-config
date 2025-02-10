@@ -183,7 +183,7 @@ return {
       )
 
       -- :Formatでフォーマットを実行
-      vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
+      vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({async = true}) end, {})
 
       -- Diagnosticsのアイコン指定
       vim.diagnostic.config({
