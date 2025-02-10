@@ -61,6 +61,9 @@ return {
         automatic_installation = true,
         handlers = {},
       })
+
+      -- SQLCompleteのエラー回避
+      vim.g.omni_sql_default_compl_type = 'syntax'
     end,
   },
 
