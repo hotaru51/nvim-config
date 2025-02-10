@@ -27,8 +27,6 @@ return {
       null_ls.setup({
         sources = {
           require("none-ls.diagnostics.flake8"),
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.formatting.isort,
           require("none-ls.diagnostics.eslint_d"),
           require("none-ls.formatting.eslint_d"),
           require("none-ls.code_actions.eslint_d"),
