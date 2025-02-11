@@ -89,6 +89,15 @@ return {
           require("lspconfig")[server_name].setup({
             capabilities = capabilities
           })
+
+          -- lsp_signatureの設定
+          require('lsp_signature').setup({
+            bind = true,
+            handler_opts = {
+              border = 'rounded',
+            },
+            hint_prefix = ' ',
+          })
         end,
 
         lua_ls = function()
@@ -175,8 +184,6 @@ return {
       vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
       -- <Leader>he でdiagnosticをfloatで表示
       vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>', {noremap = true, silent = true})
-      -- 挿入モードの<C-s>で手動でsignature helpを表示させる
-      vim.keymap.set('i', '<C-s>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', {noremap = true, silent = true})
 
       -- diagnosticsのfloatのborderの設定
       vim.diagnostic.config({
@@ -188,14 +195,6 @@ return {
         vim.lsp.handlers.hover,
         {
           border = 'rounded',
-        }
-      )
-
-      -- 手動で出したsignature helpのborder設定
-      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        {
-          border = 'rounded'
         }
       )
 
@@ -265,7 +264,6 @@ return {
           {name = 'path'},
           {name = 'omni'},
           {name = 'lazydev'},
-          {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
           {name = 'copilot'},
         }),
@@ -364,9 +362,6 @@ return {
   -- nvim-cmpのコマンドラインモードの補完ソース
   'hrsh7th/cmp-cmdline',
 
-  -- nvim-cmpのシグニチャ補完ソース
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-
   -- NeoVim設定編集時のLua関連の補完ソース
   {
     'folke/lazydev.nvim',
@@ -415,6 +410,12 @@ return {
     keys = {
       {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
     },
+  },
+
+  -- signature helpの表示
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'VeryLazy',
   },
 
   -- LSP関連のUI
