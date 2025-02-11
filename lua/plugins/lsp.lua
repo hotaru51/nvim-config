@@ -266,6 +266,7 @@ return {
           {name = 'lazydev'},
           {name = 'luasnip'},
           {name = 'copilot'},
+          {name = 'render-markdown'},
         }),
 
         -- キーマッピング

@@ -9,7 +9,7 @@ return {
   -- 括弧の補完
   'cohama/lexima.vim',
 
-  -- Markdownプレビュー
+  -- ブラウザでのMarkdownプレビュー
   {
     'iamcco/markdown-preview.nvim',
     cmd = {'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop'},
@@ -20,6 +20,19 @@ return {
     init = function()
       vim.g.mkdp_auto_close = 0
     end,
+  },
+
+  -- Vim内でのMarkdownプレビュー
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    config = true,
+    opts = {
+      enabled = false,
+    },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    },
   },
 
   -- 選択範囲内のMarkdownのテーブルを整形
@@ -74,6 +87,7 @@ return {
           'dockerfile',
           'javascript',
           'typescript',
+          'html',
           'css',
           'styled',
           'bash',

@@ -127,4 +127,29 @@ return {
     'j-hui/fidget.nvim',
     config = true,
   },
+
+  -- 起動時の画面のカスタマイズ
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+      local dashboard = require('alpha.themes.dashboard')
+      dashboard.section.header.val = {
+        '                                                     ',
+        '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
+        '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
+        '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
+        '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
+        '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
+        '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+        '                                                     ',
+      }
+      require('alpha').setup(dashboard.opts)
+    end,
+    dependencies = {
+      'echasnovski/mini.icons',
+    },
+  },
+
+  -- alpha-nvimで使用するicon library
+  'echasnovski/mini.icons',
 }
