@@ -79,9 +79,8 @@ return {
       -- lspconfig-bundler呼び出し
       require('lspconfig-bundler').setup()
 
-      -- snippet supportの有効化
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      -- cmp-nvim-lsp向けの設定
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- mason-lspconfigに渡すhandler
       local handlers = {
