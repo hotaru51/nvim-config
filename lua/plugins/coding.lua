@@ -81,6 +81,7 @@ return {
           'terraform',
           'toml',
           'json',
+          'jsonc',
           'yaml',
           'lua',
           'vim',
