@@ -127,4 +127,18 @@ return {
     'j-hui/fidget.nvim',
     config = true,
   },
+
+  -- 起動時の画面のカスタマイズ
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+      require('alpha').setup(require('alpha.themes.dashboard').config)
+    end,
+    dependencies = {
+      'echasnovski/mini.icons',
+    },
+  },
+
+  -- alpha-nvimで使用するicon library
+  'echasnovski/mini.icons',
 }
