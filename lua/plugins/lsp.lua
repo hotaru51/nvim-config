@@ -176,6 +176,8 @@ return {
       vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
       -- <Leader>he でdiagnosticをfloatで表示
       vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>', {noremap = true, silent = true})
+      -- 挿入モードの<C-s>で手動でsignature helpを表示させる
+      vim.keymap.set('i', '<C-s>', '<CMD>lua vim.lsp.buf.signature_help()<CR>', {noremap = true, silent = true})
 
       -- diagnosticsのfloatのborderの設定
       vim.diagnostic.config({
@@ -187,6 +189,14 @@ return {
         vim.lsp.handlers.hover,
         {
           border = 'rounded',
+        }
+      )
+
+      -- 手動で出したsignature helpのborder設定
+      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        {
+          border = 'rounded'
         }
       )
 
