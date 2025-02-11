@@ -87,6 +87,7 @@ return {
           'dockerfile',
           'javascript',
           'typescript',
+          'html',
           'css',
           'styled',
           'bash',
