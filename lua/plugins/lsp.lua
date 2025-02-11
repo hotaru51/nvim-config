@@ -89,6 +89,15 @@ return {
           require("lspconfig")[server_name].setup({
             capabilities = capabilities
           })
+
+          -- lsp_signatureの設定
+          require('lsp_signature').setup({
+            bind = true,
+            handler_opts = {
+              border = 'rounded',
+            },
+            hint_prefix = ' ',
+          })
         end,
 
         lua_ls = function()
@@ -265,7 +274,6 @@ return {
           {name = 'path'},
           {name = 'omni'},
           {name = 'lazydev'},
-          {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
           {name = 'copilot'},
         }),
@@ -364,9 +372,6 @@ return {
   -- nvim-cmpのコマンドラインモードの補完ソース
   'hrsh7th/cmp-cmdline',
 
-  -- nvim-cmpのシグニチャ補完ソース
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-
   -- NeoVim設定編集時のLua関連の補完ソース
   {
     'folke/lazydev.nvim',
@@ -415,6 +420,12 @@ return {
     keys = {
       {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
     },
+  },
+
+  -- signature helpの表示
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'VeryLazy',
   },
 
   -- LSP関連のUI
