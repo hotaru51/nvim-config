@@ -255,10 +255,10 @@ return {
           {name = 'buffer'},
           {name = 'path'},
           {name = 'omni'},
-          {name = 'nvim_lua'},
+          {name = 'lazydev'},
           {name = 'nvim_lsp_signature_help'},
           {name = 'luasnip'},
-          {name = 'copilot'}
+          {name = 'copilot'},
         }),
 
         -- キーマッピング
@@ -355,11 +355,17 @@ return {
   -- nvim-cmpのコマンドラインモードの補完ソース
   'hrsh7th/cmp-cmdline',
 
-  -- NeoVimのLua APIの補完ソース
-  'hrsh7th/cmp-nvim-lua',
-
   -- nvim-cmpのシグニチャ補完ソース
   'hrsh7th/cmp-nvim-lsp-signature-help',
+
+  -- NeoVim設定編集時のLua関連の補完ソース
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      {path = "${3rd}/luv/library", words = {"vim%.uv"}},
+    },
+  },
 
   -- nvim-cmpのGitHub Copilotの補完ソース
   {
