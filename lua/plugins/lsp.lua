@@ -71,6 +71,11 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
+      -- neoconf呼び出し
+      require('neoconf').setup({
+        local_settings = '.vim/neoconf.json',
+      })
+
       -- lspconfig-bundler呼び出し
       require('lspconfig-bundler').setup()
 
@@ -202,11 +207,15 @@ return {
     end,
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
+      'folke/neoconf.nvim',
     },
   },
 
   -- Rubyでbundlerを考慮してLanguage Serverを起動してくれる
   'mihyaeru21/nvim-lspconfig-bundler',
+
+  -- プロジェクト個別の設定を反映させる
+  'folke/neoconf.nvim',
 
   -- 補完ウィンドウにアイコンを表示
   'onsails/lspkind.nvim',
