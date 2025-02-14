@@ -7,15 +7,9 @@ return {
   },
 
   -- 括弧の補完
-  {
-    'cohama/lexima.vim',
-    init = function()
-      -- coc.nvimの<CR>のキーマップと競合するため、coc.nvim側でキーマップを設定する
-      vim.g.lexima_no_default_rules = 1
-    end,
-  },
+  'cohama/lexima.vim',
 
-  -- Markdownプレビュー
+  -- ブラウザでのMarkdownプレビュー
   {
     'iamcco/markdown-preview.nvim',
     cmd = {'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop'},
@@ -28,6 +22,19 @@ return {
     end,
   },
 
+  -- Vim内でのMarkdownプレビュー
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    config = true,
+    opts = {
+      enabled = false,
+    },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    },
+  },
+
   -- 選択範囲内のMarkdownのテーブルを整形
   'mattn/vim-maketable',
 
@@ -36,13 +43,13 @@ return {
     'liuchengxu/vista.vim',
     init = function()
       vim.g.vista_icon_indent = {'╰─▸ ', '├─▸ '}
-      vim.g.vista_default_executive = 'coc'
+      vim.g.vista_default_executive = 'nvim_lsp'
     end,
     keys = {
       {'<Leader>o', '<Cmd>Vista!!<CR>', mode = 'n', {noremap = true, silent = true}}
     },
     dependencies = {
-      'neoclide/coc.nvim',
+      'neovim/nvim-lspconfig',
     },
   },
 
@@ -80,6 +87,7 @@ return {
           'dockerfile',
           'javascript',
           'typescript',
+          'html',
           'css',
           'styled',
           'bash',
@@ -87,6 +95,7 @@ return {
           'terraform',
           'toml',
           'json',
+          'jsonc',
           'yaml',
           'lua',
           'vim',
@@ -105,6 +114,17 @@ return {
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
       vim.opt.foldenable = false
     end,
+  },
+
+  -- treesitterでtext objectを拡張する
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    config = function()
+      require('nvim-treesitter.configs').setup({})
+    end,
+    dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    },
   },
 
   -- Vim上からバッファ内のソースコード実行
@@ -128,4 +148,16 @@ return {
 
   -- 日本語の文節単位で移動できるようにする
   'deton/jasegment.vim',
+
+  -- ()や'の変更等を行う
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = true,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+  },
 }

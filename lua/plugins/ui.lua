@@ -81,5 +81,75 @@ return {
         },
       })
     end,
-  }
+  },
+
+  -- FuzzyFinder
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    config = function()
+      require('telescope').setup({
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = 'ignore_case',
+          },
+        },
+      })
+
+      require('telescope').load_extension('fzf')
+      require("telescope").load_extension("fidget")
+
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Telescope find files'})
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = 'Telescope live grep'})
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Telescope buffers'})
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Telescope help tags'})
+      vim.keymap.set('n', '<leader>fr', builtin.resume, {desc = 'Telescope resume'})
+    end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim',
+      'j-hui/fidget.nvim',
+    },
+  },
+
+  -- telescopeのsorter
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make'
+  },
+
+  -- Language Serverのステータス表示
+  {
+    'j-hui/fidget.nvim',
+    config = true,
+  },
+
+  -- 起動時の画面のカスタマイズ
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+      local dashboard = require('alpha.themes.dashboard')
+      dashboard.section.header.val = {
+        '                                                     ',
+        '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
+        '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
+        '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
+        '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
+        '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
+        '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+        '                                                     ',
+      }
+      require('alpha').setup(dashboard.opts)
+    end,
+    dependencies = {
+      'echasnovski/mini.icons',
+    },
+  },
+
+  -- alpha-nvimで使用するicon library
+  'echasnovski/mini.icons',
 }
