@@ -469,7 +469,13 @@ return {
     config = function()
       require('illuminate').configure({
         delay = 300,
+        -- 全部ハイライトされて鬱陶しいので
+        -- lspとtreesitterのみに絞る
+        providers = {
+          'lsp',
+          'treesitter',
+        },
       })
-    end
+    end,
   },
 }
