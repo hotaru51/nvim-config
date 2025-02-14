@@ -116,6 +116,17 @@ return {
     end,
   },
 
+  -- treesitterでtext objectを拡張する
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    config = function()
+      require('nvim-treesitter.configs').setup({})
+    end,
+    dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    },
+  },
+
   -- Vim上からバッファ内のソースコード実行
   {
     'thinca/vim-quickrun',
@@ -137,4 +148,16 @@ return {
 
   -- 日本語の文節単位で移動できるようにする
   'deton/jasegment.vim',
+
+  -- ()や'の変更等を行う
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = true,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+  },
 }
