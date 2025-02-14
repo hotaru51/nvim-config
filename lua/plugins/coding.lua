@@ -137,4 +137,16 @@ return {
 
   -- 日本語の文節単位で移動できるようにする
   'deton/jasegment.vim',
+
+  -- ()や'の変更等を行う
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = true,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+  },
 }
