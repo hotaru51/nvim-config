@@ -116,6 +116,17 @@ return {
     end,
   },
 
+  -- treesitterでtext objectを拡張する
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    config = function()
+      require('nvim-treesitter.configs').setup({})
+    end,
+    dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    },
+  },
+
   -- Vim上からバッファ内のソースコード実行
   {
     'thinca/vim-quickrun',
