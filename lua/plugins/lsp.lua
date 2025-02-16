@@ -13,9 +13,6 @@ return {
     },
   },
 
-  -- none-ls.nvimが依存
-  'nvim-lua/plenary.nvim',
-
   -- none-lsの追加ソース
   'nvimtools/none-ls-extras.nvim',
 
