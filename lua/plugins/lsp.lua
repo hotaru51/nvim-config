@@ -40,7 +40,7 @@ return {
   -- masonとnone-lsを連携させるプラグイン
   {
     'jay-babu/mason-null-ls.nvim',
-    event = {'BufReadPre', 'BufNewFile'},
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'williamboman/mason.nvim',
       'nvimtools/none-ls.nvim',
@@ -64,158 +64,6 @@ return {
     end,
   },
 
-  -- NeoVimのLSP設定補助プラグイン
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      -- neoconf呼び出し
-      require('neoconf').setup({
-        local_settings = '.vim/neoconf.json',
-      })
-
-      -- lspconfig-bundler呼び出し
-      require('lspconfig-bundler').setup()
-
-      -- cmp-nvim-lsp向けの設定
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      -- mason-lspconfigに渡すhandler
-      local handlers = {
-        -- デフォルト
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities
-          })
-
-          -- lsp_signatureの設定
-          require('lsp_signature').setup({
-            bind = true,
-            handler_opts = {
-              border = 'rounded',
-            },
-            hint_prefix = ' ',
-          })
-        end,
-
-        lua_ls = function()
-          require("lspconfig").lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  -- vimでWARNINGが出るのを抑止
-                  globals = {
-                    'vim',
-                  },
-                },
-              },
-            },
-          })
-        end,
-
-        yamlls = function ()
-          require('lspconfig').yamlls.setup({
-            capabilities = capabilities,
-            settings = {
-              yaml = {
-                customTags = {
-                  '!And',
-                  '!And sequence',
-                  '!Base64',
-                  '!Base64 mapping',
-                  '!Cidr',
-                  '!Cidr sequence',
-                  '!Condition',
-                  '!Equals',
-                  '!Equals sequence',
-                  '!FindInMap sequence',
-                  '!GetAZs',
-                  '!GetAtt',
-                  '!GetAtt sequence',
-                  '!If',
-                  '!If sequence',
-                  '!ImportValue',
-                  '!Join sequence',
-                  '!Not',
-                  '!Not sequence',
-                  '!Or',
-                  '!Or sequence',
-                  '!Ref',
-                  '!Select',
-                  '!Select sequence',
-                  '!Split',
-                  '!Split sequence',
-                  '!Sub',
-                  '!Sub sequence'
-                },
-              },
-            },
-          })
-        end
-      }
-
-      -- mason-lspconfigの設定
-      require('mason-lspconfig').setup({
-        -- 自動インストールするLanguage Server
-        ensure_installed = {
-          'pyright',
-          'solargraph',
-          'gopls',
-          'jsonls',
-          'ts_ls',
-          'html',
-          'cssls',
-          'yamlls',
-          'terraformls',
-          'bashls',
-          'dockerls',
-          'docker_compose_language_service',
-          'lua_ls',
-          'vimls',
-        },
-        automatic_installation = true,
-        handlers = handlers,
-      })
-
-      -- <Leader>hh でhoverするように設定
-      vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
-      -- <Leader>he でdiagnosticをfloatで表示
-      vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>', {noremap = true, silent = true})
-
-      -- diagnosticsのfloatのborderの設定
-      vim.diagnostic.config({
-        float = { border = "rounded" },
-      })
-
-      -- hover時のwindowのborderの設定
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {
-          border = 'rounded',
-        }
-      )
-
-      -- :Formatでフォーマットを実行
-      vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({async = true}) end, {})
-
-      -- Diagnosticsのアイコン指定
-      vim.diagnostic.config({
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '',
-          },
-        },
-      })
-    end,
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'folke/neoconf.nvim',
-    },
-  },
-
   -- Rubyでbundlerを考慮してLanguage Serverを起動してくれる
   'mihyaeru21/nvim-lspconfig-bundler',
 
@@ -228,7 +76,7 @@ return {
     opts = {},
     cmd = 'Trouble',
     keys = {
-      {'<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)'},
+      { '<leader>a', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Buffer Diagnostics (Trouble)' },
     },
   },
 
@@ -265,13 +113,13 @@ return {
       })
 
       -- 定義元ジャンプ
-      vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true })
 
       -- 参照元ジャンプ
-      vim.keymap.set('n', 'gr', '<CMD>Lspsaga finder ref<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', 'gr', '<CMD>Lspsaga finder ref<CR>', { noremap = true, silent = true })
 
       -- リネーム
-      vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', {noremap = true, silent = true})
+      vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', { noremap = true, silent = true })
     end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
