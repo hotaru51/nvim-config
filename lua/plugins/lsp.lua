@@ -233,10 +233,7 @@ return {
   },
 
   -- signature helpの表示
-  {
-    'ray-x/lsp_signature.nvim',
-    event = 'VeryLazy',
-  },
+  'ray-x/lsp_signature.nvim',
 
   -- LSP関連のUI
   {
