@@ -6,9 +6,6 @@ return {
     opts = {},
   },
 
-  -- 括弧の補完
-  'cohama/lexima.vim',
-
   -- ブラウザでのMarkdownプレビュー
   {
     'iamcco/markdown-preview.nvim',
