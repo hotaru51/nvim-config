@@ -329,9 +329,7 @@ return {
         -- / の補完
         cmp.setup.cmdline('/', {
           mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            {name = 'buffer'}
-          }
+          sources = { cmp_buffer_config },
         }),
 
         -- : の補完
