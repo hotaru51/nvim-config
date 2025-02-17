@@ -235,6 +235,19 @@ return {
       local cmp = require('cmp')
       local lspkind = require('lspkind')
       local luasnip = require('luasnip')
+      -- cmp-bufferの設定
+      local cmp_buffer_config = {
+        name = 'buffer',
+        option = {
+          get_bufnrs = function()
+            local bufs = {}
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+              bufs[vim.api.nvim_win_get_buf(win)] = true
+            end
+            return vim.tbl_keys(bufs)
+          end
+        }
+      }
 
       cmp.setup({
         formatting = {
@@ -260,7 +273,7 @@ return {
         -- 補完ソース
         sources = cmp.config.sources({
           {name = 'nvim_lsp'},
-          {name = 'buffer'},
+          cmp_buffer_config,
           {name = 'path'},
           {name = 'omni'},
           {name = 'lazydev'},
@@ -316,9 +329,7 @@ return {
         -- / の補完
         cmp.setup.cmdline('/', {
           mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            {name = 'buffer'}
-          }
+          sources = { cmp_buffer_config },
         }),
 
         -- : の補完
