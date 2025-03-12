@@ -22,7 +22,7 @@ return {
 
       cmp.setup({
         formatting = {
-          -- lspkingの設定
+          -- lspkindの設定
           format = lspkind.cmp_format({
             mode = 'symbol_text',
             maxwidth = {
