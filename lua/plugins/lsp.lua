@@ -28,6 +28,9 @@ return {
           require("none-ls.formatting.eslint_d"),
           require("none-ls.code_actions.eslint_d"),
           null_ls.builtins.completion.luasnip,
+          null_ls.builtins.formatting.isort.with({
+            extra_args = { '--profile', 'black' },
+          }),
         },
       })
     end,
