@@ -108,6 +108,7 @@ return {
           'cssls',
           'yamlls',
           'terraformls',
+          'tflint',
           'bashls',
           'dockerls',
           'docker_compose_language_service',
