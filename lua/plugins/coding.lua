@@ -9,8 +9,8 @@ return {
   -- ブラウザでのMarkdownプレビュー
   {
     'iamcco/markdown-preview.nvim',
-    cmd = {'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop'},
-    ft = {'markdown', 'pandoc.markdown', 'rmd'},
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    ft = { 'markdown', 'pandoc.markdown', 'rmd' },
     build = function()
       vim.fn['mkdp#util#install']()
     end,
@@ -39,11 +39,11 @@ return {
   {
     'liuchengxu/vista.vim',
     init = function()
-      vim.g.vista_icon_indent = {'╰─▸ ', '├─▸ '}
+      vim.g.vista_icon_indent = { '╰─▸ ', '├─▸ ' }
       vim.g.vista_default_executive = 'nvim_lsp'
     end,
     keys = {
-      {'<Leader>o', '<Cmd>Vista!!<CR>', mode = 'n', {noremap = true, silent = true}}
+      { '<Leader>o', '<Cmd>Vista!!<CR>', mode = 'n', { noremap = true, silent = true } }
     },
     dependencies = {
       'neovim/nvim-lspconfig',
@@ -120,7 +120,7 @@ return {
       require('nvim-treesitter.configs').setup({})
     end,
     dependencies = {
-    'nvim-treesitter/nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter',
     },
   },
 
@@ -128,7 +128,7 @@ return {
   {
     'thinca/vim-quickrun',
     keys = {
-      {'Q', '<Cmd>QuickRun<CR>', mode = 'n', {noremap = true, silent = true}}
+      { 'Q', '<Cmd>QuickRun<CR>', mode = 'n', { noremap = true, silent = true } }
     },
   },
 
