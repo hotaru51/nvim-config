@@ -1,7 +1,4 @@
 return {
-  -- nvim-tree.luaでNerd Fontを表示するのに必須
-  'nvim-tree/nvim-web-devicons',
-
   -- ファイラー
   {
     'nvim-tree/nvim-tree.lua',
@@ -20,11 +17,11 @@ return {
       -- dotfileをデフォルトで非表示、.gitignoreだけは常に表示する
       filters = {
         dotfiles = true,
-        exclude = {".gitignore"}
+        exclude = { ".gitignore" }
       }
     },
     keys = {
-      {'<Leader>e', '<Cmd>NvimTreeToggle<CR>', mode = 'n', {noremap = true, silent = true}}
+      { '<Leader>e', '<Cmd>NvimTreeToggle<CR>', mode = 'n', { noremap = true, silent = true } }
     },
     dependencies = {
       'nvim-tree/nvim-web-devicons',
