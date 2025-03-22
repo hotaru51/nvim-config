@@ -5,8 +5,8 @@ return {
     'zbirenbaum/copilot.lua',
     config = function()
       require("copilot").setup({
-        suggestion = {enabled = false},
-        panel = {enabled = false},
+        suggestion = { enabled = false },
+        panel = { enabled = false },
       })
     end,
     cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
