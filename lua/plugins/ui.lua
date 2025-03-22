@@ -69,12 +69,12 @@ return {
           color = colors.bg_highlight,
         },
         marks = {
-          Search = {color = colors.orange},
-          Error = {color = colors.error},
-          Warn = {color = colors.warning},
-          Info = {color = colors.info},
-          Hint = {color = colors.hint},
-          Misc = {color = colors.purple},
+          Search = { color = colors.orange },
+          Error = { color = colors.error },
+          Warn = { color = colors.warning },
+          Info = { color = colors.info },
+          Hint = { color = colors.hint },
+          Misc = { color = colors.purple },
         },
         handlers = {
           cursor = false,
@@ -103,11 +103,11 @@ return {
       require("telescope").load_extension("fidget")
 
       local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Telescope find files'})
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = 'Telescope live grep'})
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Telescope buffers'})
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Telescope help tags'})
-      vim.keymap.set('n', '<leader>fr', builtin.resume, {desc = 'Telescope resume'})
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope resume' })
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -131,7 +131,7 @@ return {
   -- 起動時の画面のカスタマイズ
   {
     'goolord/alpha-nvim',
-    config = function ()
+    config = function()
       local dashboard = require('alpha.themes.dashboard')
       dashboard.section.header.val = {
         '  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣄⡀ ⠀',
