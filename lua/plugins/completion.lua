@@ -167,7 +167,7 @@ return {
     config = function()
       require("copilot_cmp").setup()
     end,
-    cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
     dependencies = {
       'zbirenbaum/copilot.lua',
     },

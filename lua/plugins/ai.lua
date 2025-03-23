@@ -1,6 +1,6 @@
 return {
   -- GitHub Copilotの利用に必須
-  -- 環境変数 HTR_GH_COPILOT が enabled の場合のみインストール
+  -- 環境変数 HTR_NVIM_AI が enabled の場合のみインストール
   {
     'zbirenbaum/copilot.lua',
     config = function()
@@ -9,7 +9,7 @@ return {
         panel = { enabled = false },
       })
     end,
-    cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
   },
 
   -- AI ChatやAgent用プラグイン
@@ -39,7 +39,7 @@ return {
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
-    cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
