@@ -118,6 +118,13 @@ return {
           })
         }),
 
+        -- codecompanion向けの設定
+        cmp.setup.filetype('codecompanion', {
+          sources = {
+            { name = 'codecompanion' }
+          },
+        }),
+
         -- UI設定
         window = {
           completion = cmp.config.window.bordered(),
@@ -135,6 +142,7 @@ return {
       'folke/lazydev.nvim',
       'zbirenbaum/copilot-cmp',
       'MeanderingProgrammer/render-markdown.nvim',
+      'olimorris/codecompanion.nvim',
     },
   },
 
