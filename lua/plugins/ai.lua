@@ -27,6 +27,11 @@ return {
           adapter = "copilot"
         },
       },
+      display = {
+        action_palette = {
+          provider = "telescope"
+        },
+      },
     },
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
