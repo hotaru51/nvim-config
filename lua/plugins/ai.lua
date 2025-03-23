@@ -23,7 +23,7 @@ return {
         inline = {
           adapter = "copilot"
         },
-        agent = {
+        cmd = {
           adapter = "copilot"
         },
       },
