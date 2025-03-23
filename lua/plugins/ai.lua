@@ -32,6 +32,9 @@ return {
           provider = "telescope"
         },
       },
+      opts = {
+        language = "Japanese",
+      },
     },
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
