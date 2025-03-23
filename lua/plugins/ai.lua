@@ -28,10 +28,14 @@ return {
         },
       },
     },
+    init = function()
+      require("plugins.codecompanion.fidget-spinner"):init()
+    end,
     cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "j-hui/fidget.nvim",
     },
   },
 }
