@@ -18,7 +18,29 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "copilot"
+          adapter = "copilot",
+          slash_commands = {
+            ["buffer"] = {
+              opts = {
+                provider = "telescope"
+              },
+            },
+            ["file"] = {
+              opts = {
+                provider = "telescope"
+              },
+            },
+            ["help"] = {
+              opts = {
+                provider = "telescope"
+              },
+            },
+            ["symbols"] = {
+              opts = {
+                provider = "telescope"
+              },
+            },
+          },
         },
         inline = {
           adapter = "copilot"
@@ -44,6 +66,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "j-hui/fidget.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
     },
   },
 }
