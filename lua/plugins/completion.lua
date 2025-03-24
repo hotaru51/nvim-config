@@ -121,7 +121,10 @@ return {
         -- codecompanion向けの設定
         cmp.setup.filetype('codecompanion', {
           sources = {
-            { name = 'codecompanion' }
+            { name = 'codecompanion_models' },
+            { name = 'codecompanion_slash_commands' },
+            { name = 'codecompanion_tools' },
+            { name = 'codecompanion_variables' },
           },
         }),
 
