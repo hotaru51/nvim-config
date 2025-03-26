@@ -58,6 +58,9 @@ return {
         language = "Japanese",
       },
     },
+    keys = {
+      { '<leader>cc', '<cmd>CodeCompanionChat Toggle<CR>' },
+    },
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
