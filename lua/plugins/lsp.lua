@@ -40,7 +40,7 @@ return {
         definition = {
           keys = {
             edit = '<C-o>',
-            split = '<C-s>',
+            split = '<C-x>',
             vsplit = '<C-v>',
             tabe = '<C-t>',
           },
@@ -48,7 +48,7 @@ return {
         finder = {
           keys = {
             edit = '<C-o>',
-            split = '<C-s>',
+            split = '<C-x>',
             vsplit = '<C-v>',
             tabe = '<C-t>',
           },

@@ -56,7 +56,19 @@ return {
   },
 
   -- バッファ操作
-  'jeetsukumaran/vim-buffergator',
+  {
+    'jeetsukumaran/vim-buffergator',
+    init = function()
+      --画面下に表示
+      vim.g.buffergator_viewport_split_policy = 'B'
+      -- デフォルトのグローバルキーマップを削除
+      vim.g.buffergator_suppress_keymaps = 1
+    end,
+    keys = {
+      { '<Leader>bb', '<Cmd>BuffergatorToggle<CR>', mode = 'n', {noremap = true, silent = true} },
+      { '<Leader>bt', '<Cmd>BuffergatorTabsToggle<CR>', mode = 'n', {noremap = true, silent = true} },
+    },
+  },
 
   -- スクロールバー
   {
