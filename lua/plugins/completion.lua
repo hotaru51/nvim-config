@@ -118,6 +118,16 @@ return {
           })
         }),
 
+        -- codecompanion向けの設定
+        cmp.setup.filetype('codecompanion', {
+          sources = {
+            { name = 'codecompanion_models' },
+            { name = 'codecompanion_slash_commands' },
+            { name = 'codecompanion_tools' },
+            { name = 'codecompanion_variables' },
+          },
+        }),
+
         -- UI設定
         window = {
           completion = cmp.config.window.bordered(),
@@ -135,6 +145,7 @@ return {
       'folke/lazydev.nvim',
       'zbirenbaum/copilot-cmp',
       'MeanderingProgrammer/render-markdown.nvim',
+      'olimorris/codecompanion.nvim',
     },
   },
 
@@ -159,7 +170,7 @@ return {
     config = function()
       require("copilot_cmp").setup()
     end,
-    cond = (vim.env.HTR_GH_COPILOT == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
     dependencies = {
       'zbirenbaum/copilot.lua',
     },

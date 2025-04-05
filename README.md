@@ -38,3 +38,7 @@ nvim
 :CocCommand python.setInterpreter
 :CocCommand go.install.gopls
 ```
+
+## AI系プラグインの有効化
+
+環境変数 `HTR_NVIM_AI` を `enabled` に設定する
