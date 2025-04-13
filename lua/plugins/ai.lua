@@ -12,6 +12,19 @@ return {
     cond = (vim.env.HTR_NVIM_AI == 'enabled'),
   },
 
+  -- Windsurf(Codeium)の利用に必須
+  -- 環境変数 HTR_NVIM_AI が personal の場合のみインストール
+  {
+    "Exafunction/windsurf.nvim",
+    config = function()
+      require("codeium").setup({})
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cond = (vim.env.HTR_NVIM_AI == "personal"),
+  },
+
   -- AI ChatやAgent用プラグイン
   {
     "olimorris/codecompanion.nvim",
