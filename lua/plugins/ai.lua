@@ -22,7 +22,7 @@ return {
         panel = { enabled = false },
       })
     end,
-    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'business'),
   },
 
   -- Windsurf(Codeium)の利用に必須
@@ -90,7 +90,7 @@ return {
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
-    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'personal' or vim.env.HTR_NVIM_AI == 'business'),
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
