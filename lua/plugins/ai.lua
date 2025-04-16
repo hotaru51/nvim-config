@@ -1,3 +1,16 @@
+-- 環境変数 HTR_NVIM_AI の値に応じてcodecompanionのadapterを変更する
+local function codecompanion_adapter()
+  local mode = vim.env.HTR_NVIM_AI
+  local adapter = ""
+  if mode == "personal" then
+    adapter = "gemini"
+  elseif mode == "business" then
+    adapter = "copilot"
+  end
+
+  return adapter
+end
+
 return {
   -- GitHub Copilotの利用に必須
   -- 環境変数 HTR_NVIM_AI が enabled の場合のみインストール
@@ -31,7 +44,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "copilot",
+          adapter = codecompanion_adapter(),
           slash_commands = {
             ["buffer"] = {
               opts = {
@@ -56,10 +69,10 @@ return {
           },
         },
         inline = {
-          adapter = "copilot"
+          adapter = codecompanion_adapter()
         },
         cmd = {
-          adapter = "copilot"
+          adapter = codecompanion_adapter()
         },
       },
       display = {
