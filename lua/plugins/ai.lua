@@ -1,3 +1,16 @@
+-- 環境変数 HTR_NVIM_AI の値に応じてcodecompanionのadapterを変更する
+local function codecompanion_adapter()
+  local mode = vim.env.HTR_NVIM_AI
+  local adapter = ""
+  if mode == "personal" then
+    adapter = "gemini"
+  elseif mode == "business" then
+    adapter = "copilot"
+  end
+
+  return adapter
+end
+
 return {
   -- GitHub Copilotの利用に必須
   -- 環境変数 HTR_NVIM_AI が enabled の場合のみインストール
@@ -9,7 +22,20 @@ return {
         panel = { enabled = false },
       })
     end,
-    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'business'),
+  },
+
+  -- Windsurf(Codeium)の利用に必須
+  -- 環境変数 HTR_NVIM_AI が personal の場合のみインストール
+  {
+    "Exafunction/windsurf.nvim",
+    config = function()
+      require("codeium").setup({})
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cond = (vim.env.HTR_NVIM_AI == "personal"),
   },
 
   -- AI ChatやAgent用プラグイン
@@ -18,7 +44,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "copilot",
+          adapter = codecompanion_adapter(),
           slash_commands = {
             ["buffer"] = {
               opts = {
@@ -43,10 +69,10 @@ return {
           },
         },
         inline = {
-          adapter = "copilot"
+          adapter = codecompanion_adapter()
         },
         cmd = {
-          adapter = "copilot"
+          adapter = codecompanion_adapter()
         },
       },
       display = {
@@ -64,7 +90,7 @@ return {
     init = function()
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
-    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'personal' or vim.env.HTR_NVIM_AI == 'business'),
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",

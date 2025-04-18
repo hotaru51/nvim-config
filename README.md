@@ -41,4 +41,8 @@ nvim
 
 ## AI系プラグインの有効化
 
-環境変数 `HTR_NVIM_AI` を `enabled` に設定する
+業務利用か個人利用かに応じて環境変数 `HTR_NVIM_AI` に下記の値を設定する
+
+* `business` : 業務利用の場合(copilot)
+* `personal` : 個人利用の場合(WindsurfとGemini)
+    * こちらの場合は `GEMINI_API_KEY` も設定する

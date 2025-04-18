@@ -50,6 +50,7 @@ return {
           { name = 'lazydev' },
           { name = 'luasnip' },
           { name = 'copilot' },
+          { name = 'codeium' },
           { name = 'render-markdown' },
         }),
 
@@ -144,6 +145,7 @@ return {
       'hrsh7th/cmp-omni',
       'folke/lazydev.nvim',
       'zbirenbaum/copilot-cmp',
+      'Exafunction/windsurf.nvim',
       'MeanderingProgrammer/render-markdown.nvim',
       'olimorris/codecompanion.nvim',
     },
@@ -170,7 +172,7 @@ return {
     config = function()
       require("copilot_cmp").setup()
     end,
-    cond = (vim.env.HTR_NVIM_AI == 'enabled'),
+    cond = (vim.env.HTR_NVIM_AI == 'business'),
     dependencies = {
       'zbirenbaum/copilot.lua',
     },
