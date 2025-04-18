@@ -24,7 +24,20 @@ return {
     'MeanderingProgrammer/render-markdown.nvim',
     config = true,
     opts = {
-      enabled = false,
+      overrides = {
+        buftype = {
+          nofile = {
+            enabled = false,
+            -- hoverのconceallevelの設定
+            win_options = {
+              conceallevel = {
+                default = 2,
+                rendered = 3,
+              },
+            },
+          },
+        },
+      },
     },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',

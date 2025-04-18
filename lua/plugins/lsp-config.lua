@@ -119,16 +119,6 @@ return {
         handlers = handlers,
       })
 
-      -- <Leader>hh でhoverするように設定
-      vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-
-      -- hover時のwindowのborderの設定
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {
-          border = 'rounded',
-        }
-      )
       -- <Leader>he でdiagnosticをfloatで表示
       vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>',
         { noremap = true, silent = true })
