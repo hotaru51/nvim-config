@@ -119,9 +119,6 @@ return {
         handlers = handlers,
       })
 
-      -- <Leader>hh でhoverするように設定
-      vim.keymap.set('n', '<Leader>hh', '<CMD>lua vim.lsp.buf.hover({ border = "rounded" })<CR>', { noremap = true, silent = true })
-
       -- <Leader>he でdiagnosticをfloatで表示
       vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>',
         { noremap = true, silent = true })

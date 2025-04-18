@@ -61,6 +61,9 @@ return {
         },
       })
 
+      -- hover
+      vim.keymap.set('n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
+
       -- 定義元ジャンプ
       vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true })
 
