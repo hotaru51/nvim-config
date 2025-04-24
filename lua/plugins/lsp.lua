@@ -36,32 +36,30 @@ return {
   {
     'nvimdev/lspsaga.nvim',
     event = 'LspAttach',
-    config = function()
-      require('lspsaga').setup({
-        definition = {
-          keys = {
-            edit = '<C-o>',
-            split = '<C-x>',
-            vsplit = '<C-v>',
-            tabe = '<C-t>',
-          },
+    opts = {
+      definition = {
+        keys = {
+          edit = '<C-o>',
+          split = '<C-x>',
+          vsplit = '<C-v>',
+          tabe = '<C-t>',
         },
-        finder = {
-          keys = {
-            toggle_or_open = '<CR>',
-            split = '<C-x>',
-            vsplit = '<C-v>',
-            tabe = '<C-t>',
-          },
+      },
+      finder = {
+        keys = {
+          toggle_or_open = '<CR>',
+          split = '<C-x>',
+          vsplit = '<C-v>',
+          tabe = '<C-t>',
         },
-        lightbulb = {
-          sign = false,
-        },
-        ui = {
-          code_action = '',
-        },
-      })
-    end,
+      },
+      lightbulb = {
+        sign = false,
+      },
+      ui = {
+        code_action = '',
+      },
+    },
     keys = {
       -- hover
       { mode = 'n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>',       { noremap = true, silent = true } },
