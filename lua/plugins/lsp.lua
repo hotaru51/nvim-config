@@ -35,44 +35,41 @@ return {
   -- LSP関連のUI
   {
     'nvimdev/lspsaga.nvim',
-    config = function()
-      require('lspsaga').setup({
-        definition = {
-          keys = {
-            edit = '<C-o>',
-            split = '<C-x>',
-            vsplit = '<C-v>',
-            tabe = '<C-t>',
-          },
+    event = 'LspAttach',
+    opts = {
+      definition = {
+        keys = {
+          edit = '<C-o>',
+          split = '<C-x>',
+          vsplit = '<C-v>',
+          tabe = '<C-t>',
         },
-        finder = {
-          keys = {
-            edit = '<C-o>',
-            split = '<C-x>',
-            vsplit = '<C-v>',
-            tabe = '<C-t>',
-          },
+      },
+      finder = {
+        keys = {
+          toggle_or_open = '<CR>',
+          split = '<C-x>',
+          vsplit = '<C-v>',
+          tabe = '<C-t>',
         },
-        lightbulb = {
-          sign = false,
-        },
-        ui = {
-          code_action = '',
-        },
-      })
-
+      },
+      lightbulb = {
+        sign = false,
+      },
+      ui = {
+        code_action = '',
+      },
+    },
+    keys = {
       -- hover
-      vim.keymap.set('n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
-
+      { mode = 'n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>',       { noremap = true, silent = true } },
       -- 定義元ジャンプ
-      vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true })
-
+      { mode = 'n', 'gd',         '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true } },
       -- 参照元ジャンプ
-      vim.keymap.set('n', 'gr', '<CMD>Lspsaga finder ref<CR>', { noremap = true, silent = true })
-
+      { mode = 'n', 'gr',         '<CMD>Lspsaga finder ref<CR>',      { noremap = true, silent = true } },
       -- リネーム
-      vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', { noremap = true, silent = true })
-    end,
+      { mode = 'n', '<Leader>rn', '<CMD>Lspsaga rename<CR>',          { noremap = true, silent = true } },
+    },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
