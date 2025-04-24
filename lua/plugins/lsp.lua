@@ -35,6 +35,7 @@ return {
   -- LSP関連のUI
   {
     'nvimdev/lspsaga.nvim',
+    event = 'LspAttach',
     config = function()
       require('lspsaga').setup({
         definition = {
