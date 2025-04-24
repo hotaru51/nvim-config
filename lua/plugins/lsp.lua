@@ -60,19 +60,17 @@ return {
           code_action = '',
         },
       })
-
-      -- hover
-      vim.keymap.set('n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
-
-      -- 定義元ジャンプ
-      vim.keymap.set('n', 'gd', '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true })
-
-      -- 参照元ジャンプ
-      vim.keymap.set('n', 'gr', '<CMD>Lspsaga finder ref<CR>', { noremap = true, silent = true })
-
-      -- リネーム
-      vim.keymap.set('n', '<Leader>rn', '<CMD>Lspsaga rename<CR>', { noremap = true, silent = true })
     end,
+    keys = {
+      -- hover
+      { mode = 'n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>',       { noremap = true, silent = true } },
+      -- 定義元ジャンプ
+      { mode = 'n', 'gd',         '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true } },
+      -- 参照元ジャンプ
+      { mode = 'n', 'gr',         '<CMD>Lspsaga finder ref<CR>',      { noremap = true, silent = true } },
+      -- リネーム
+      { mode = 'n', '<Leader>rn', '<CMD>Lspsaga rename<CR>',          { noremap = true, silent = true } },
+    },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
