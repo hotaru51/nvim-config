@@ -47,7 +47,7 @@ return {
         },
         finder = {
           keys = {
-            edit = '<C-o>',
+            toggle_or_open = '<CR>',
             split = '<C-x>',
             vsplit = '<C-v>',
             tabe = '<C-t>',
