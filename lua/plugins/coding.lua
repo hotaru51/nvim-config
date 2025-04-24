@@ -19,32 +19,6 @@ return {
     end,
   },
 
-  -- Vim内でのMarkdownプレビュー
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    config = true,
-    opts = {
-      overrides = {
-        buftype = {
-          nofile = {
-            enabled = false,
-            -- hoverのconceallevelの設定
-            win_options = {
-              conceallevel = {
-                default = 2,
-                rendered = 3,
-              },
-            },
-          },
-        },
-      },
-    },
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons'
-    },
-  },
-
   -- 選択範囲内のMarkdownのテーブルを整形
   'mattn/vim-maketable',
 

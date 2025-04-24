@@ -51,7 +51,6 @@ return {
           { name = 'luasnip' },
           { name = 'copilot' },
           { name = 'codeium' },
-          { name = 'render-markdown' },
         }),
 
         -- キーマッピング
@@ -146,7 +145,6 @@ return {
       'folke/lazydev.nvim',
       'zbirenbaum/copilot-cmp',
       'Exafunction/windsurf.nvim',
-      'MeanderingProgrammer/render-markdown.nvim',
       'olimorris/codecompanion.nvim',
     },
   },
