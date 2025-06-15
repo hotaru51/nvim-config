@@ -97,8 +97,8 @@ return {
           end, { "i", "s" }),
         }),
 
-        -- / の補完
-        cmp.setup.cmdline('/', {
+        -- /、? の補完
+        cmp.setup.cmdline({ '/', '?' }, {
           mapping = cmp.mapping.preset.cmdline(),
           sources = { cmp_buffer_config },
         }),
