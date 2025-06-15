@@ -106,6 +106,7 @@ return {
           'ts_ls',
           'html',
           'cssls',
+          'eslint',
           'yamlls',
           'terraformls',
           'tflint',
