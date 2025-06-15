@@ -11,6 +11,7 @@ return {
         sources = {
           require("none-ls.diagnostics.flake8"),
           null_ls.builtins.completion.luasnip,
+          null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.isort.with({
             extra_args = { '--profile', 'black' },
           }),
@@ -29,6 +30,7 @@ return {
     config = function()
       require('mason-null-ls').setup({
         ensure_installed = {
+          'prettier',
           'flake8',
           'black',
           'isort',
