@@ -10,9 +10,6 @@ return {
       null_ls.setup({
         sources = {
           require("none-ls.diagnostics.flake8"),
-          require("none-ls.diagnostics.eslint_d"),
-          require("none-ls.formatting.eslint_d"),
-          require("none-ls.code_actions.eslint_d"),
           null_ls.builtins.completion.luasnip,
           null_ls.builtins.formatting.isort.with({
             extra_args = { '--profile', 'black' },
@@ -35,7 +32,6 @@ return {
           'flake8',
           'black',
           'isort',
-          'eslint_d',
           'cfn-lint',
           'sql-formatter',
         },
