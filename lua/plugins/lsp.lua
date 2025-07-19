@@ -1,15 +1,15 @@
 return {
   -- Language Serverのインストール
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     config = true,
   },
 
   -- nvim-lspconfigとmasonを連携させるプラグイン
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     dependencies = {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
     },
   },
 
