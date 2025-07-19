@@ -11,89 +11,62 @@ return {
       -- lspconfig-bundler呼び出し
       require('lspconfig-bundler').setup()
 
-      -- cmp-nvim-lsp向けの設定
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- 各言語共通設定
+      vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+      })
 
-      -- lsp_signatureの設定
-      local lsp_signature_opts = {
-        bind = true,
-        handler_opts = {
-          border = 'rounded',
-        },
-        hint_prefix = ' ',
-      }
-
-      -- mason-lspconfigに渡すhandler
-      local handlers = {
-        -- デフォルト
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities
-          })
-
-          require('lsp_signature').setup(lsp_signature_opts)
-        end,
-
-        lua_ls = function()
-          require("lspconfig").lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  -- vimでWARNINGが出るのを抑止
-                  globals = {
-                    'vim',
-                  },
-                },
+      -- lua_ls
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            diagnostics = {
+              -- vimでWARNINGが出るのを抑止
+              globals = {
+                'vim',
               },
             },
-          })
+          },
+        }
+      })
 
-          require('lsp_signature').setup(lsp_signature_opts)
-        end,
-
-        yamlls = function()
-          require('lspconfig').yamlls.setup({
-            capabilities = capabilities,
-            settings = {
-              yaml = {
-                customTags = {
-                  '!And',
-                  '!And sequence',
-                  '!Base64',
-                  '!Base64 mapping',
-                  '!Cidr',
-                  '!Cidr sequence',
-                  '!Condition',
-                  '!Equals',
-                  '!Equals sequence',
-                  '!FindInMap sequence',
-                  '!GetAZs',
-                  '!GetAtt',
-                  '!GetAtt sequence',
-                  '!If',
-                  '!If sequence',
-                  '!ImportValue',
-                  '!Join sequence',
-                  '!Not',
-                  '!Not sequence',
-                  '!Or',
-                  '!Or sequence',
-                  '!Ref',
-                  '!Select',
-                  '!Select sequence',
-                  '!Split',
-                  '!Split sequence',
-                  '!Sub',
-                  '!Sub sequence'
-                },
-              },
+      -- yamlls
+      vim.lsp.config('yamlls', {
+        settings = {
+          yaml = {
+            customTags = {
+              '!And',
+              '!And sequence',
+              '!Base64',
+              '!Base64 mapping',
+              '!Cidr',
+              '!Cidr sequence',
+              '!Condition',
+              '!Equals',
+              '!Equals sequence',
+              '!FindInMap sequence',
+              '!GetAZs',
+              '!GetAtt',
+              '!GetAtt sequence',
+              '!If',
+              '!If sequence',
+              '!ImportValue',
+              '!Join sequence',
+              '!Not',
+              '!Not sequence',
+              '!Or',
+              '!Or sequence',
+              '!Ref',
+              '!Select',
+              '!Select sequence',
+              '!Split',
+              '!Split sequence',
+              '!Sub',
+              '!Sub sequence'
             },
-          })
-
-          require('lsp_signature').setup(lsp_signature_opts)
-        end,
-      }
+          },
+        }
+      })
 
       -- mason-lspconfigの設定
       require('mason-lspconfig').setup({
@@ -116,8 +89,16 @@ return {
           'lua_ls',
           'vimls',
         },
-        automatic_installation = true,
-        handlers = handlers,
+        automatic_enable = true
+      })
+
+      -- lsp_signatureの設定
+      require('lsp_signature').setup({
+        bind = true,
+        handler_opts = {
+          border = 'rounded',
+        },
+        hint_prefix = ' ',
       })
 
       -- <Leader>he でdiagnosticをfloatで表示
