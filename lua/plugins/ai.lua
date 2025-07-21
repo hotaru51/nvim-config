@@ -67,6 +67,9 @@ return {
               },
             },
           },
+          opts = {
+            completion_provider = "cmp",
+          },
         },
         inline = {
           adapter = codecompanion_adapter()
