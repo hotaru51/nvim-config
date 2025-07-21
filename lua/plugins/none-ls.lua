@@ -38,7 +38,15 @@ return {
           'sql-formatter',
         },
         automatic_installation = true,
-        handlers = {},
+        handlers = {
+          -- https://github.com/nvimtools/none-ls.nvim/pull/292 の暫定対応
+          cfn_lint = function(source_name, methods)
+            local null_ls = require("null-ls")
+            null_ls.register(null_ls.builtins.diagnostics.cfn_lint.with({
+              args = { "--format", "parseable" }
+            }))
+          end,
+        },
       })
 
       -- SQLCompleteのエラー回避
