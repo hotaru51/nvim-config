@@ -45,7 +45,7 @@ return {
       vim.g.omni_sql_default_compl_type = 'syntax'
     end,
     dependencies = {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
       'nvimtools/none-ls.nvim',
     },
   },
