@@ -3,11 +3,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- neoconf呼び出し
-      require('neoconf').setup({
-        local_settings = '.vim/neoconf.json',
-      })
-
       -- lspconfig-bundler呼び出し
       require('lspconfig-bundler').setup()
 
@@ -74,7 +69,6 @@ return {
       })
     end,
     dependencies = {
-      'folke/neoconf.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'mihyaeru21/nvim-lspconfig-bundler',
       'ray-x/lsp_signature.nvim',
