@@ -67,7 +67,6 @@ return {
     end,
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
-      'mihyaeru21/nvim-lspconfig-bundler',
       'ray-x/lsp_signature.nvim',
       'williamboman/mason-lspconfig.nvim',
     },
