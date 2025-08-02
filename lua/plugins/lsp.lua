@@ -1,23 +1,40 @@
 return {
   -- Language Serverのインストール
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     config = true,
   },
 
   -- nvim-lspconfigとmasonを連携させるプラグイン
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
+    opts = {
+      -- 自動インストールするLanguage Server
+      ensure_installed = {
+        'pyright',
+        'solargraph',
+        'gopls',
+        'jsonls',
+        'ts_ls',
+        'html',
+        'cssls',
+        'eslint',
+        'yamlls',
+        'terraformls',
+        'tflint',
+        'bashls',
+        'dockerls',
+        'docker_compose_language_service',
+        'lua_ls',
+        'vimls',
+      },
+      automatic_enable = true
+    },
     dependencies = {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
+      'neovim/nvim-lspconfig',
     },
   },
-
-  -- Rubyでbundlerを考慮してLanguage Serverを起動してくれる
-  'mihyaeru21/nvim-lspconfig-bundler',
-
-  -- プロジェクト個別の設定を反映させる
-  'folke/neoconf.nvim',
 
   -- Diagnostics用のUI
   {
@@ -30,7 +47,19 @@ return {
   },
 
   -- signature helpの表示
-  'ray-x/lsp_signature.nvim',
+  {
+    'ray-x/lsp_signature.nvim',
+    opts = {
+      bind = true,
+      handler_opts = {
+        border = 'rounded',
+      },
+      hint_prefix = ' ',
+    },
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+  },
 
   -- LSP関連のUI
   {

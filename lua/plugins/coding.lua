@@ -140,4 +140,13 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
   },
+
+  -- プロジェクトローカルの設定を反映
+  {
+    "klen/nvim-config-local",
+    opts = {
+      config_files = { ".nvim/nvim.lua" },
+      lookup_parents = true,
+    },
+  },
 }
