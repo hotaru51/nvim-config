@@ -51,8 +51,7 @@
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
   "vim-precious": { "branch": "master", "commit": "8df741e52e3886be9daaac5c02f8eac62168f379" },
   "vim-quickrun": { "branch": "master", "commit": "77b4d6ea9972a206f02c736882c2398c36d2983c" },
-  "vim-terraform": { "branch": "master", "commit": "8912ca1be3025a1c9fab193618f3b99517e01973" },
-  "vista.vim": { "branch": "master", "commit": "1e90efad6e32c4f7d16b1ca8f49bf63d0693802e" },
-  "windsurf.nvim": { "branch": "main", "commit": "ad4414878f7ece254deab8c922d82cec124d161f" },
+  "vim-terraform": { "branch": "master", "commit": "520498fab16a3a11f2ae1b8cb65e0a1684bc317a" },
+  "windsurf.nvim": { "branch": "main", "commit": "821b570b526dbb05b57aa4ded578b709a704a38a" },
   "winresizer": { "branch": "master", "commit": "9bd559a03ccec98a458e60c705547119eb5350f3" }
 }
