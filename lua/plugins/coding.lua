@@ -24,16 +24,15 @@ return {
 
   -- LSPを利用してシンボル等をサイドバーで表示
   {
-    'liuchengxu/vista.vim',
-    init = function()
-      vim.g.vista_icon_indent = { '╰─▸ ', '├─▸ ' }
-      vim.g.vista_default_executive = 'nvim_lsp'
-    end,
-    keys = {
-      { '<Leader>o', '<Cmd>Vista!!<CR>', mode = 'n', { noremap = true, silent = true } }
+    "hedyhli/outline.nvim",
+    opts = {
+      outline_window = {
+        width = 15,
+      },
     },
-    dependencies = {
-      'neovim/nvim-lspconfig',
+    cmd = { "Outline", "OutlineOpen" },
+    keys = {
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
     },
   },
 
