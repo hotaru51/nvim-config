@@ -47,7 +47,19 @@ return {
   },
 
   -- signature helpの表示
-  'ray-x/lsp_signature.nvim',
+  {
+    'ray-x/lsp_signature.nvim',
+    opts = {
+      bind = true,
+      handler_opts = {
+        border = 'rounded',
+      },
+      hint_prefix = ' ',
+    },
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+  },
 
   -- LSP関連のUI
   {
