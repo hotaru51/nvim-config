@@ -3,9 +3,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- lspconfig-bundler呼び出し
-      require('lspconfig-bundler').setup()
-
       -- 各言語共通設定
       vim.lsp.config('*', {
         capabilities = require('cmp_nvim_lsp').default_capabilities()

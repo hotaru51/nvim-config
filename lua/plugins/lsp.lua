@@ -13,9 +13,6 @@ return {
     },
   },
 
-  -- Rubyでbundlerを考慮してLanguage Serverを起動してくれる
-  'mihyaeru21/nvim-lspconfig-bundler',
-
   -- Diagnostics用のUI
   {
     'folke/trouble.nvim',
