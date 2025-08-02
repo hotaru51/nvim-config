@@ -3,11 +3,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- 各言語共通設定
-      vim.lsp.config('*', {
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-      })
-
       -- <Leader>he でdiagnosticをfloatで表示
       vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>',
         { noremap = true, silent = true })
@@ -32,8 +27,5 @@ return {
         },
       })
     end,
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-    },
   },
 }

@@ -146,7 +146,18 @@ return {
   'hrsh7th/cmp-cmdline',
 
   -- nvim-cmpのLSP用補完ソース
-  'hrsh7th/cmp-nvim-lsp',
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    config = function()
+      -- capabilitiesを設定
+      vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+      })
+    end,
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+  },
 
   -- nvim-cmpのオムニ補完のソース
   'hrsh7th/cmp-omni',
