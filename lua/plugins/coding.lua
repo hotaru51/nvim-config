@@ -22,6 +22,20 @@ return {
   -- 選択範囲内のMarkdownのテーブルを整形
   'mattn/vim-maketable',
 
+  -- LSPを利用してシンボル等をサイドバーで表示
+  {
+    "hedyhli/outline.nvim",
+    opts = {
+      outline_window = {
+        width = 15,
+      },
+    },
+    cmd = { "Outline", "OutlineOpen" },
+    keys = {
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+  },
+
   -- vim-precious依存プラグイン
   'Shougo/context_filetype.vim',
 
