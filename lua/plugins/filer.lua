@@ -21,7 +21,19 @@ return {
       }
     },
     keys = {
-      { '<Leader>e', '<Cmd>NvimTreeToggle<CR>', mode = 'n', { noremap = true, silent = true } }
+      {
+        '<Leader>e',
+        function()
+          local nvim_tree = require('nvim-tree.api')
+          if nvim_tree.tree.is_tree_buf() then
+            nvim_tree.tree.close()
+          else
+            nvim_tree.tree.open()
+          end
+        end,
+        mode = 'n',
+        { noremap = true, silent = true }
+      }
     },
     dependencies = {
       'nvim-tree/nvim-web-devicons',
