@@ -8,8 +8,31 @@ return {
   -- nvim-lspconfigとmasonを連携させるプラグイン
   {
     'mason-org/mason-lspconfig.nvim',
+    opts = {
+      -- 自動インストールするLanguage Server
+      ensure_installed = {
+        'pyright',
+        'solargraph',
+        'gopls',
+        'jsonls',
+        'ts_ls',
+        'html',
+        'cssls',
+        'eslint',
+        'yamlls',
+        'terraformls',
+        'tflint',
+        'bashls',
+        'dockerls',
+        'docker_compose_language_service',
+        'lua_ls',
+        'vimls',
+      },
+      automatic_enable = true
+    },
     dependencies = {
       'mason-org/mason.nvim',
+      'neovim/nvim-lspconfig',
     },
   },
 

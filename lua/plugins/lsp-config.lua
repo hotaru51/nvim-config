@@ -8,30 +8,6 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities()
       })
 
-      -- mason-lspconfigの設定
-      require('mason-lspconfig').setup({
-        -- 自動インストールするLanguage Server
-        ensure_installed = {
-          'pyright',
-          'solargraph',
-          'gopls',
-          'jsonls',
-          'ts_ls',
-          'html',
-          'cssls',
-          'eslint',
-          'yamlls',
-          'terraformls',
-          'tflint',
-          'bashls',
-          'dockerls',
-          'docker_compose_language_service',
-          'lua_ls',
-          'vimls',
-        },
-        automatic_enable = true
-      })
-
       -- lsp_signatureの設定
       require('lsp_signature').setup({
         bind = true,
@@ -68,7 +44,6 @@ return {
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'ray-x/lsp_signature.nvim',
-      'williamboman/mason-lspconfig.nvim',
     },
   },
 }
