@@ -120,6 +120,7 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope resume' })
+      vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = 'Telescope jumplist' })
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
