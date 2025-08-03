@@ -43,7 +43,7 @@ return {
     cmd = 'Trouble',
     keys = {
       { '<leader>a', '<cmd>Trouble diagnostics open focus=true auto_preview=false filter.buf=0<CR>', desc = 'Current Buffer Diagnostics (Trouble)' },
-      { '<leader>A', '<cmd>Trouble diagnostics open focus=true auto_preview=false<CR>', desc = 'All Buffer Diagnostics (Trouble)' },
+      { '<leader>A', '<cmd>Trouble diagnostics open focus=true auto_preview=false<CR>',              desc = 'All Buffer Diagnostics (Trouble)' },
     },
   },
 
