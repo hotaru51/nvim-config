@@ -32,7 +32,18 @@ return {
     },
     cmd = { "Outline", "OutlineOpen" },
     keys = {
-      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+      {
+        "<leader>o",
+        function()
+          local outline = require('outline')
+          if outline.has_focus() then
+            outline.close_outline()
+          else
+            outline.open_outline()
+          end
+        end,
+        desc = "Toggle outline"
+      },
     },
   },
 
