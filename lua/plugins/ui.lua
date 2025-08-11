@@ -190,4 +190,18 @@ return {
 
   -- alpha-nvimで使用するicon library
   'echasnovski/mini.icons',
+
+  -- マークダウン表示用プラグイン
+  -- 現状codecompanion用として使用
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+    opts = {
+      preview = {
+        filetypes = { "codecompanion" },
+        ignore_buftypes = {},
+      },
+    },
+    cond = (vim.env.HTR_NVIM_AI == 'personal' or vim.env.HTR_NVIM_AI == 'business'),
+  },
 }
