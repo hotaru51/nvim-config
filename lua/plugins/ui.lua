@@ -65,8 +65,8 @@ return {
       vim.g.buffergator_suppress_keymaps = 1
     end,
     keys = {
-      { '<Leader>bb', '<Cmd>BuffergatorToggle<CR>', mode = 'n', {noremap = true, silent = true} },
-      { '<Leader>bt', '<Cmd>BuffergatorTabsToggle<CR>', mode = 'n', {noremap = true, silent = true} },
+      { '<Leader>bb', '<Cmd>BuffergatorToggle<CR>',     mode = 'n', { noremap = true, silent = true } },
+      { '<Leader>bt', '<Cmd>BuffergatorTabsToggle<CR>', mode = 'n', { noremap = true, silent = true } },
     },
   },
 
