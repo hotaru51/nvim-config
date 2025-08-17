@@ -79,6 +79,9 @@ return {
       local ui = require("buffer_manager.ui")
       vim.keymap.set("n", "<leader>b", ui.toggle_quick_menu, { silent = true, noremap = true })
     end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
   },
 
   -- スクロールバー
