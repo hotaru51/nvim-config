@@ -36,6 +36,11 @@ return {
       -- :Formatでフォーマットを実行
       vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ async = true }) end, {})
 
+      -- gqでフォーマットを実行
+      vim.keymap.set({ 'n', 'v' }, 'gq', function()
+        vim.lsp.buf.format({ async = true })
+      end, { silent = true, noremap = true })
+
       -- Diagnosticsのアイコン指定
       vim.diagnostic.config({
         signs = {
