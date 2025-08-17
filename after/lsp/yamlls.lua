@@ -1,3 +1,9 @@
+local status, schemastore = pcall(require, 'schemastore')
+local schemas = nil
+if status then
+  schemas = schemastore.yaml.schemas()
+end
+
 return {
   settings = {
     yaml = {
@@ -31,6 +37,11 @@ return {
         '!Sub',
         '!Sub sequence'
       },
+      schemastore = {
+        enable = false,
+        url = "",
+      },
+      schemas = schemas,
     },
   }
 }
