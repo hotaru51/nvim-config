@@ -15,7 +15,7 @@ return {
       -- hover表示時のborder設定
       -- vim.lsp.hover()をoverrideするように設定
       local _hover = vim.lsp.buf.hover
-      vim.lsp.buf.hover = function (opts)
+      vim.lsp.buf.hover = function(opts)
         opts = opts or {}
         opts.border = opts.border or 'rounded'
         return _hover(opts)
