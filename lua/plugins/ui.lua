@@ -55,6 +55,32 @@ return {
     },
   },
 
+  -- バッファ操作
+  {
+    'j-morano/buffer_manager.nvim',
+    config = function()
+      require("buffer_manager").setup({
+        select_menu_item_commands = {
+          sp = {
+            key = "<C-x>",
+            command = "split",
+          },
+          vs = {
+            key = "<C-v>",
+            command = "vsplit",
+          },
+          tabe = {
+            key = "<C-t>",
+            command = "tabedit",
+          },
+        },
+        show_indicators = "before",
+      })
+      local ui = require("buffer_manager.ui")
+      vim.keymap.set("n", "<leader>b", ui.toggle_quick_menu, { silent = true, noremap = true })
+    end,
+  },
+
   -- スクロールバー
   {
     'petertriho/nvim-scrollbar',
