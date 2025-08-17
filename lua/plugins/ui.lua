@@ -57,16 +57,30 @@ return {
 
   -- バッファ操作
   {
-    'jeetsukumaran/vim-buffergator',
-    init = function()
-      --画面下に表示
-      vim.g.buffergator_viewport_split_policy = 'B'
-      -- デフォルトのグローバルキーマップを削除
-      vim.g.buffergator_suppress_keymaps = 1
+    'j-morano/buffer_manager.nvim',
+    config = function()
+      require("buffer_manager").setup({
+        select_menu_item_commands = {
+          sp = {
+            key = "<C-x>",
+            command = "split",
+          },
+          vs = {
+            key = "<C-v>",
+            command = "vsplit",
+          },
+          tabe = {
+            key = "<C-t>",
+            command = "tabedit",
+          },
+        },
+        show_indicators = "before",
+      })
+      local ui = require("buffer_manager.ui")
+      vim.keymap.set("n", "<leader>b", ui.toggle_quick_menu, { silent = true, noremap = true })
     end,
-    keys = {
-      { '<Leader>bb', '<Cmd>BuffergatorToggle<CR>',     mode = 'n', { noremap = true, silent = true } },
-      { '<Leader>bt', '<Cmd>BuffergatorTabsToggle<CR>', mode = 'n', { noremap = true, silent = true } },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
     },
   },
 
