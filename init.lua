@@ -118,7 +118,10 @@ end
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"*p', {noremap = true})
 vim.keymap.set({'n', 'v'}, '<Leader>P', '"*P', {noremap = true})
 
--- Perl providerを使用しないので無効化
+-- 使用しないproviderを無効化
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 -- ウィンドウを下にsplitしてターミナル表示
