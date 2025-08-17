@@ -15,7 +15,7 @@ return {
       -- hover表示時のborder設定
       -- vim.lsp.hover()をoverrideするように設定
       local _hover = vim.lsp.buf.hover
-      vim.lsp.buf.hover = function (opts)
+      vim.lsp.buf.hover = function(opts)
         opts = opts or {}
         opts.border = opts.border or 'rounded'
         return _hover(opts)
@@ -35,6 +35,11 @@ return {
 
       -- :Formatでフォーマットを実行
       vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ async = true }) end, {})
+
+      -- gqでフォーマットを実行
+      vim.keymap.set({ 'n', 'v' }, 'gq', function()
+        vim.lsp.buf.format({ async = true })
+      end, { silent = true, noremap = true })
 
       -- Diagnosticsのアイコン指定
       vim.diagnostic.config({
