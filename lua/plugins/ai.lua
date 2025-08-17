@@ -83,6 +83,20 @@ return {
           provider = "telescope"
         },
       },
+      extensions = {
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            make_tools = true,
+            show_server_tools_in_chat = true,
+            add_mcp_prefix_to_tool_names = false,
+            show_result_in_chat = true,
+            format_tool = nil,
+            make_vars = true,
+            make_slash_commands = true,
+          },
+        },
+      },
       opts = {
         language = "Japanese",
       },
@@ -98,4 +112,17 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
     },
   },
+
+  -- MCPサーバ連携プラグイン
+  {
+    "ravitemer/mcphub.nvim",
+    build = "npm install -g mcp-hub@latest",
+    config = function()
+      require("mcphub").setup()
+    end,
+    cond = (vim.env.HTR_NVIM_AI == 'personal' or vim.env.HTR_NVIM_AI == 'business'),
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  }
 }
