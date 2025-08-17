@@ -36,6 +36,9 @@ return {
     },
   },
 
+  -- JSON、YAMLのschema情報
+  'b0o/schemastore.nvim',
+
   -- Diagnostics用のUI
   {
     'folke/trouble.nvim',
