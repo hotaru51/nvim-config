@@ -46,13 +46,24 @@ return {
   {
     'akinsho/toggleterm.nvim',
     version = "*",
-    opts = {
-      open_mapping = [[<leader>tf]],
-      direction = 'float',
-      insert_mappings = false,
-      terminal_mappings = false,
-      auto_scroll = false,
-    },
+    config = function()
+      require('toggleterm').setup({
+        open_mapping = [[<leader>tf]],
+        direction = 'float',
+        insert_mappings = false,
+        terminal_mappings = false,
+        auto_scroll = false,
+      })
+
+      local terminal = require('toggleterm.terminal').Terminal
+
+      -- lazygit専用ターミナル表示
+      local lazygit = terminal:new({ cmd = 'lazygit', hidden = true })
+      local lazygit_toggle = function()
+        lazygit:toggle()
+      end
+      vim.keymap.set('n', '<leader>tl', lazygit_toggle, { noremap = true, silent = true })
+    end,
   },
 
   -- バッファ操作
