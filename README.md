@@ -3,21 +3,11 @@
 ## Requirement
 
 * Ruby
-    * neovim
-    * solargraph
-    * rubocop
 * Python
-    * neovim
-    * pylint
-    * flake8
 * node.js
-    * neovim
-    * standard
-    * jsonlint
-    * dockerfile-language-server-nodejs
-    * bash-language-server
+* Go
+* Terraform
 * yarn
-* [terraform-ls](https://github.com/hashicorp/terraform-ls)
 
 ## Usage
 
@@ -28,15 +18,6 @@ echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
 source ~/.bashrc
 mkdir ~/.config
 git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
-./package_setup.sh ruby python2 python3 node
-```
-
-nvim
-
-```sh
-:UpdateRemotePlugins
-:CocCommand python.setInterpreter
-:CocCommand go.install.gopls
 ```
 
 ## AI系プラグインの有効化
