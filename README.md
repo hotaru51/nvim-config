@@ -12,12 +12,11 @@
 
 ## Usage
 
-deploy
+### deploy
+
+[dotfiles](https://github.com/hotaru51/dotfiles)が先に設定済みであること
 
 ```sh
-echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
-source ~/.bashrc
-mkdir ~/.config
 git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
 ```
 
