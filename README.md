@@ -8,6 +8,7 @@
 * Go
 * Terraform
 * yarn
+    * `markdown-preview.nvim` のビルドに使用
 
 ## Usage
 
