@@ -67,53 +67,63 @@ return {
   -- Tree sitter
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = 'main',
     build = ':TSUpdate',
     config = function()
-      local configs = require('nvim-treesitter.configs')
-
-      configs.setup({
-        ensure_installed = {
-          'python',
-          'ruby',
-          'go',
-          'dockerfile',
-          'javascript',
-          'typescript',
-          'html',
-          'css',
-          'styled',
-          'bash',
-          'hcl',
-          'terraform',
-          'toml',
-          'json',
-          'jsonc',
-          'yaml',
-          'lua',
-          'vim',
-          'vimdoc',
-        },
-        highlight = {
-          enable = true,
-          disable = {
-            'bash',
-            'terraform',
-          },
-        },
+      local nvim_treesitter = require('nvim-treesitter')
+      nvim_treesitter.setup()
+      nvim_treesitter.install({
+        'python',
+        'ruby',
+        'go',
+        'dockerfile',
+        'javascript',
+        'typescript',
+        'html',
+        'css',
+        'styled',
+        'bash',
+        'hcl',
+        'terraform',
+        'toml',
+        'json',
+        'yaml',
+        'lua',
+        'vim',
+        'vimdoc',
       })
 
-      vim.opt.foldmethod = 'expr'
-      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-      vim.opt.foldenable = false
+      -- 機能の有効化
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
+        callback = function(ctx)
+          -- 特定のファイルタイプでは有効化させない
+          local exclude_filetype = { 'terraform', 'bash' }
+          if vim.tbl_contains(exclude_filetype, vim.bo.filetype) then
+            return
+          end
+
+          local sts = pcall(vim.treesitter.start) -- ハイライト有効化
+          if sts then
+            -- 折りたたみ有効化
+            vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo[0][0].foldmethod = 'expr'
+            vim.wo[0][0].foldenable = false
+
+            -- インデントの有効化
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end
+      })
     end,
   },
 
   -- treesitterでtext objectを拡張する
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    config = function()
-      require('nvim-treesitter.configs').setup({})
-    end,
+    branch = 'main',
+    config = true,
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },

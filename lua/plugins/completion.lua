@@ -120,8 +120,8 @@ return {
 
         -- UI設定
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({ border = 'rounded' }),
+          documentation = cmp.config.window.bordered({ border = 'rounded' }),
         },
       })
     end,
