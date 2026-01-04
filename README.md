@@ -9,6 +9,7 @@
 * Terraform
 * yarn
     * `markdown-preview.nvim` のビルドに使用
+* tree-sitter-cli
 
 ## Usage
 
