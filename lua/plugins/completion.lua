@@ -4,7 +4,6 @@ return {
     'hrsh7th/nvim-cmp',
     config = function()
       local cmp = require('cmp')
-      local lspkind = require('lspkind')
       local luasnip = require('luasnip')
       -- cmp-bufferの設定
       local cmp_buffer_config = {
@@ -21,19 +20,6 @@ return {
       }
 
       cmp.setup({
-        formatting = {
-          -- lspkindの設定
-          format = lspkind.cmp_format({
-            mode = 'symbol_text',
-            maxwidth = {
-              menu = 50,
-              abbr = 50,
-            },
-            ellipsis_char = '...',
-            show_labelDetails = true,
-          }),
-        },
-
         -- スニペット
         snippet = {
           expand = function(args)
@@ -120,8 +106,8 @@ return {
 
         -- UI設定
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({ border = 'rounded' }),
+          documentation = cmp.config.window.bordered({ border = 'rounded' }),
         },
       })
     end,
