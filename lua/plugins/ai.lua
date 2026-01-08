@@ -124,5 +124,16 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+  },
+
+  -- AI CLIツール連携プラグイン
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      cli = {
+        mux = { enabled = false },
+      },
+    nes = { enabled = false },
+    },
   }
 }
