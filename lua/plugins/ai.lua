@@ -132,8 +132,16 @@ return {
     opts = {
       cli = {
         mux = { enabled = false },
+        win = {
+          keys = {
+            stopinsert_ctrl_j = { "<c-j>", "stopinsert", mode = "t", desc = "enter normal mode" }
+          }
+        },
       },
-    nes = { enabled = false },
+      nes = { enabled = false },
+    },
+    keys = {
+      { mode = { "n" }, "<Leader>ta", function() require("sidekick.cli").toggle() end, desc = "Sidekick Toggle", { noremap = true, silent = true } },
     },
   }
 }
