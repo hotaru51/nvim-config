@@ -111,8 +111,11 @@ return {
             vim.wo[0][0].foldmethod = 'expr'
             vim.wo[0][0].foldenable = false
 
-            -- インデントの有効化
-            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            -- インデントの有効化(一旦markdown以外)
+            local exclude_indent_filetype = { 'markdown' }
+            if not vim.tbl_contains(exclude_indent_filetype, vim.bo.filetype) then
+              vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
           end
         end
       })
