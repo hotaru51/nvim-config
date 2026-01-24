@@ -124,5 +124,34 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+  },
+
+  -- AI CLIツール連携
+  {
+    'lambdalisue/nvim-aibo',
+    config = function()
+      require('aibo').setup()
+
+      -- CLIツールを下記優先度で指定
+      -- 1. 環境変数 HTR_NVIM_AI_CLI で指定したコマンド
+      -- 2. cursor-agent
+      -- 3. gemini
+      local cli_tbl = { "cursor-agent", "gemini" }
+      if vim.env.HTR_NVIM_AI_CLI ~= nil then
+        table.insert(cli_tbl, 1, vim.env.HTR_NVIM_AI_CLI)
+      end
+
+      -- Aiboを呼び出すキーマップを設定
+      for _, cli in ipairs(cli_tbl) do
+        print(cli)
+        if vim.fn.executable(cli) == 1 then
+          vim.keymap.set("n", "<Leader>ta", function()
+            local width = math.floor(vim.o.columns * 1 / 3)
+            vim.cmd(string.format("Aibo -toggle -opener='%dvsplit' %s", width, cli))
+          end, { noremap = true })
+          break
+        end
+      end
+    end,
   }
 }
