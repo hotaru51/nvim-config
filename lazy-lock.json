@@ -30,6 +30,7 @@
   "mini.icons": { "branch": "main", "commit": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "03955d165621300965a6d685c8f399ec7efd5785" },
   "none-ls.nvim": { "branch": "main", "commit": "0b457958cb958c16850b5a1fb38bbcd982909181" },
+  "nvim-aibo": { "branch": "main", "commit": "ede45dca805afab44941046088dacc031086d6b2" },
   "nvim-cmp": { "branch": "main", "commit": "85bbfad83f804f11688d1ab9486b459e699292d6" },
   "nvim-config-local": { "branch": "main", "commit": "990f3e35e0fba8fb83012d7e85f9a6a77de7f87f" },
   "nvim-hlslens": { "branch": "main", "commit": "425405475300d64de07dec3af60b1f1d31d49230" },
