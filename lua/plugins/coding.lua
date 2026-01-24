@@ -45,17 +45,6 @@ return {
     },
   },
 
-  -- vim-precious依存プラグイン
-  'Shougo/context_filetype.vim',
-
-  -- コードブロック内の言語に応じてfiletypeを変更する
-  {
-    'osyo-manga/vim-precious',
-    dependencies = {
-      'Shougo/context_filetype.vim',
-    },
-  },
-
   -- Terraformのsyntax highlightなど
   {
     'hashivim/vim-terraform',
