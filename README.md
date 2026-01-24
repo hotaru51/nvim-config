@@ -28,3 +28,5 @@ git clone https://github.com/hotaru51/nvim-config.git ~/.config/nvim
 * `business` : 業務利用の場合(copilot)
 * `personal` : 個人利用の場合(WindsurfとGemini)
     * こちらの場合は `GEMINI_API_KEY` も設定する
+
+AI Agent用ターミナルで呼び出すツールの指定は環境変数 `HTR_NVIM_AI_CLI` で指定する
