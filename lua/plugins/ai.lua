@@ -146,7 +146,7 @@ return {
         if vim.fn.executable(cli) == 1 then
           vim.keymap.set("n", "<Leader>ta", function()
             local width = math.floor(vim.o.columns * 1 / 3)
-            vim.cmd(string.format("Aibo -toggle -opener='%dvsplit' %s", width, cli))
+            vim.cmd(string.format("Aibo -toggle -opener='botright %dvsplit' %s", width, cli))
           end, { noremap = true })
           break
         end
