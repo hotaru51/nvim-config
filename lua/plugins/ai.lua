@@ -143,7 +143,6 @@ return {
 
       -- Aiboを呼び出すキーマップを設定
       for _, cli in ipairs(cli_tbl) do
-        print(cli)
         if vim.fn.executable(cli) == 1 then
           vim.keymap.set("n", "<Leader>ta", function()
             local width = math.floor(vim.o.columns * 1 / 3)
