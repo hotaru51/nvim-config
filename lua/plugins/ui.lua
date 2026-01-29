@@ -64,27 +64,17 @@ return {
       end
       vim.keymap.set('n', '<leader>tl', lazygit_toggle, { noremap = true, silent = true })
 
-      -- CLIツールを下記優先度で指定
-      -- 1. 環境変数 HTR_NVIM_AI_CLI で指定したコマンド
-      -- 2. cursor-agent
-      -- 3. gemini
-      local cli_tbl = { "cursor-agent", "gemini" }
-      if vim.env.HTR_NVIM_AI_CLI ~= nil then
-        table.insert(cli_tbl, 1, vim.env.HTR_NVIM_AI_CLI)
-      end
-
-      -- CLIのAI Agent表示用
-      for _, cli in ipairs(cli_tbl) do
-        if vim.fn.executable(cli) == 1 then
-          local ai_agent = terminal:new({ cmd = cli, hidden = true, direction = 'vertical' })
-          local ai_agent_toggle = function()
-            -- outline.nvimが開いている場合は閉じる
-            require('outline').close_outline()
-            ai_agent:toggle((vim.o.columns * 0.3))
-          end
-          vim.keymap.set('n', '<leader>ta', ai_agent_toggle, { noremap = true, silent = true })
-          break
+      -- AI Agent CLIが見つかった場合は表示用のターミナルを作成
+      local helpers = require('utils.helpers')
+      local agent_cmd = helpers.detect_ai_agent_cmd()
+      if agent_cmd ~= nil then
+        local ai_agent = terminal:new({ cmd = agent_cmd, hidden = true, direction = 'vertical' })
+        local ai_agent_toggle = function()
+          -- outline.nvimが開いている場合は閉じる
+          require('outline').close_outline()
+          ai_agent:toggle((vim.o.columns * 0.3))
         end
+        vim.keymap.set('n', '<leader>ta', ai_agent_toggle, { noremap = true, silent = true })
       end
     end,
   },
