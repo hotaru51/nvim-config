@@ -72,7 +72,7 @@ return {
         local ai_agent_toggle = function()
           -- outline.nvimが開いている場合は閉じる
           require('outline').close_outline()
-          ai_agent:toggle((vim.o.columns * 0.3))
+          ai_agent:toggle(math.floor(vim.o.columns * 0.3))
         end
         vim.keymap.set('n', '<leader>ta', ai_agent_toggle, { noremap = true, silent = true })
       end

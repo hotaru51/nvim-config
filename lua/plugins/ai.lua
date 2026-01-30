@@ -138,7 +138,7 @@ return {
       local agent_cmd = helpers.detect_ai_agent_cmd()
       if agent_cmd ~= nil then
         vim.keymap.set("n", "<Leader>ti", function()
-          local width = math.floor(vim.o.columns * 1 / 3)
+          local width = math.floor(vim.o.columns * 0.3)
           vim.cmd(string.format("Aibo -toggle -opener='botright %dvsplit' %s", width, agent_cmd))
         end, { noremap = true })
       end
