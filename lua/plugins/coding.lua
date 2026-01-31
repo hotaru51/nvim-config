@@ -69,6 +69,7 @@ return {
         'dockerfile',
         'javascript',
         'typescript',
+        'tsx',
         'html',
         'css',
         'styled',
@@ -77,10 +78,14 @@ return {
         'terraform',
         'toml',
         'json',
+        'json5',
+        'jsonnet',
         'yaml',
         'lua',
         'vim',
         'vimdoc',
+        'markdown',
+        'markdown_inline',
       })
 
       -- 機能の有効化
@@ -100,8 +105,9 @@ return {
             vim.wo[0][0].foldmethod = 'expr'
             vim.wo[0][0].foldenable = false
 
-            -- インデントの有効化(一旦markdown以外)
-            local exclude_indent_filetype = { 'markdown' }
+            -- インデントの有効化
+            -- 特定のファイルタイプは有効化させない
+            local exclude_indent_filetype = { 'typescript', 'json', 'jsonc' }
             if not vim.tbl_contains(exclude_indent_filetype, vim.bo.filetype) then
               vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
             end
