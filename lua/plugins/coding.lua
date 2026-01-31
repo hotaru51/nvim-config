@@ -69,6 +69,7 @@ return {
         'dockerfile',
         'javascript',
         'typescript',
+        'tsx',
         'html',
         'css',
         'styled',
@@ -77,10 +78,14 @@ return {
         'terraform',
         'toml',
         'json',
+        'json5',
+        'jsonnet',
         'yaml',
         'lua',
         'vim',
         'vimdoc',
+        'markdown',
+        'markdown_inline',
       })
 
       -- 機能の有効化
