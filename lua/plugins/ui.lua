@@ -123,7 +123,7 @@ return {
   -- FuzzyFinder
   {
     'nvim-telescope/telescope.nvim',
-    tag = '*',
+    version = '*',
     config = function()
       require('telescope').setup({
         extensions = {
