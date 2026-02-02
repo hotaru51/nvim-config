@@ -3,10 +3,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- <Leader>he でdiagnosticをfloatで表示
-      vim.keymap.set('n', '<Leader>he', '<CMD>lua vim.diagnostic.open_float(nil, {focus=false})<CR>',
-        { noremap = true, silent = true })
-
       -- diagnosticsのfloatのborderの設定
       vim.diagnostic.config({
         float = { border = "rounded" },
