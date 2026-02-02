@@ -124,5 +124,24 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+  },
+
+  -- AI CLIツール連携
+  {
+    'lambdalisue/nvim-aibo',
+    config = function()
+      require('aibo').setup()
+
+      local helpers = require('utils.helpers')
+
+      -- AI Agent CLIが見つかった場合はAiboを呼び出すキーマップを設定
+      local agent_cmd = helpers.detect_ai_agent_cmd()
+      if agent_cmd ~= nil then
+        vim.keymap.set("n", "<Leader>ti", function()
+          local width = math.floor(vim.o.columns * 0.3)
+          vim.cmd(string.format("Aibo -toggle -opener='botright %dvsplit' %s", width, agent_cmd))
+        end, { noremap = true })
+      end
+    end,
   }
 }
