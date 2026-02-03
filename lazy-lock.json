@@ -28,6 +28,7 @@
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
   "mcphub.nvim": { "branch": "main", "commit": "424e8c988e2e958da6f2182e40d52ee54bb18b8c" },
   "mini.icons": { "branch": "main", "commit": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c" },
+  "neoscroll.nvim": { "branch": "master", "commit": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "6ced4fc4072c7b269ba95bb596196cc76e00b280" },
   "none-ls.nvim": { "branch": "main", "commit": "3c206dfedf5f1385e9d29f85ffaec7874358592a" },
   "nvim-aibo": { "branch": "main", "commit": "ede45dca805afab44941046088dacc031086d6b2" },

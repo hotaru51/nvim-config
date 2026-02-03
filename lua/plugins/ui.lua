@@ -242,4 +242,21 @@ return {
     },
     cond = (vim.env.HTR_NVIM_AI == 'personal' or vim.env.HTR_NVIM_AI == 'business'),
   },
+
+  -- 画面スクロールを滑らかにする
+  {
+    'karb94/neoscroll.nvim',
+    opts = {
+      mappings = {
+        '<C-u>',
+        '<C-d>',
+        '<C-b>',
+        '<C-f>',
+        'zt',
+        'zz',
+        'zb'
+      },
+      duration_multiplier = 0.5
+    }
+  }
 }
