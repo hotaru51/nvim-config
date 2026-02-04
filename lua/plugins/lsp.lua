@@ -86,6 +86,12 @@ return {
           tabe = '<C-t>',
         },
       },
+      outline = {
+        layout = 'float',
+        keys = {
+          toggle_or_jump = '<CR>'
+        }
+      },
       lightbulb = {
         sign = false,
       },
@@ -95,13 +101,22 @@ return {
     },
     keys = {
       -- hover
-      { mode = 'n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>',       { noremap = true, silent = true } },
+      { mode = 'n', '<Leader>hh', '<CMD>Lspsaga hover_doc<CR>',                         { noremap = true, silent = true } },
+      -- diagnostics(カーソル下)
+      { mode = 'n', '<Leader>he', '<CMD>Lspsaga show_cursor_diagnostics ++unfocus<CR>', { noremap = true, silent = true } },
+      { mode = 'n', '<Leader>hE', '<CMD>Lspsaga show_cursor_diagnostics<CR>',           { noremap = true, silent = true } },
       -- 定義元ジャンプ
-      { mode = 'n', 'gd',         '<CMD>Lspsaga peek_definition<CR>', { noremap = true, silent = true } },
+      { mode = 'n', 'grd',        '<CMD>Lspsaga peek_definition<CR>',                   { noremap = true, silent = true } },
       -- 参照元ジャンプ
-      { mode = 'n', 'gr',         '<CMD>Lspsaga finder ref<CR>',      { noremap = true, silent = true } },
+      { mode = 'n', 'grr',        '<CMD>Lspsaga finder ref<CR>',                        { noremap = true, silent = true } },
+      -- implementation
+      { mode = 'n', 'gri',        '<CMD>Lspsaga finder imp<CR>',                        { noremap = true, silent = true } },
       -- リネーム
-      { mode = 'n', '<Leader>rn', '<CMD>Lspsaga rename<CR>',          { noremap = true, silent = true } },
+      { mode = 'n', 'grn',        '<CMD>Lspsaga rename<CR>',                            { noremap = true, silent = true } },
+      -- コードアクション
+      { mode = 'n', 'gra',        '<CMD>Lspsaga code_action<CR>',                       { noremap = true, silent = true } },
+      -- ドキュメントシンボル
+      { mode = 'n', 'gO',         '<CMD>Lspsaga outline<CR>',                           { noremap = true, silent = true } },
     },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
