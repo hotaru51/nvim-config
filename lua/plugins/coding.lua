@@ -17,6 +17,14 @@ return {
     end,
   },
 
+  -- Vivifyを使用したMarkdownプレビュー
+  -- 要Vivify
+  -- https://github.com/jannis-baum/Vivify
+  {
+    "jannis-baum/vivify.vim",
+    cond = (vim.fn.executable('viv') == 1)
+  },
+
   -- 選択範囲内のMarkdownのテーブルを整形
   'mattn/vim-maketable',
 
