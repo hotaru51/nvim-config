@@ -1,3 +1,28 @@
+local function installable_tools()
+  local tools_by_installer = {
+    node = {
+      'prettier',
+      'sql-formatter'
+    },
+    python = {
+      'flake8',
+      'black',
+      'isort',
+      'cfn-lint'
+    },
+  }
+
+  local tools = {}
+
+  for installer, names in pairs(tools_by_installer) do
+    if vim.fn.executable(installer) == 1 then
+      vim.list_extend(tools, names)
+    end
+  end
+
+  return tools
+end
+
 return {
   -- none-lsの追加ソース
   'nvimtools/none-ls-extras.nvim',
@@ -29,14 +54,7 @@ return {
     'jay-babu/mason-null-ls.nvim',
     config = function()
       require('mason-null-ls').setup({
-        ensure_installed = {
-          'prettier',
-          'flake8',
-          'black',
-          'isort',
-          'cfn-lint',
-          'sql-formatter',
-        },
+        ensure_installed = installable_tools(),
         automatic_installation = true,
         handlers = {},
       })

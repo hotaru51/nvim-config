@@ -6,8 +6,9 @@ local M = {}
 function M.detect_ai_agent_cmd()
   -- 使用するAI Agent CLI
   local ai_agent_cmd_tbl = {
-    "cursor-agent",
-    "gemini"
+    "claude",
+    "agy",
+    "cursor-agent"
   }
 
   -- 環境変数 HTR_NVIM_AI_CLI の指定がある場合は優先

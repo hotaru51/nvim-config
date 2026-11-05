@@ -1,3 +1,41 @@
+local function installable_servers()
+  local servers_by_installer = {
+    node = {
+      'pyright',
+      'jsonls',
+      'ts_ls',
+      'html',
+      'cssls',
+      'eslint',
+      'yamlls',
+      'bashls',
+      'dockerls',
+      'docker_compose_language_service',
+      'vimls',
+    },
+    ruby = {
+      'solargraph'
+    },
+    go = {
+      'gopls'
+    },
+  }
+
+  local servers = {
+    'lua_ls',
+    'terraformls',
+    'tflint'
+  }
+
+  for installer, names in pairs(servers_by_installer) do
+    if vim.fn.executable(installer) == 1 then
+      vim.list_extend(servers, names)
+    end
+  end
+
+  return servers
+end
+
 return {
   -- Language Serverのインストール
   {
@@ -10,24 +48,7 @@ return {
     'mason-org/mason-lspconfig.nvim',
     opts = {
       -- 自動インストールするLanguage Server
-      ensure_installed = {
-        'pyright',
-        'solargraph',
-        'gopls',
-        'jsonls',
-        'ts_ls',
-        'html',
-        'cssls',
-        'eslint',
-        'yamlls',
-        'terraformls',
-        'tflint',
-        'bashls',
-        'dockerls',
-        'docker_compose_language_service',
-        'lua_ls',
-        'vimls',
-      },
+      ensure_installed = installable_servers(),
       automatic_enable = true
     },
     dependencies = {
